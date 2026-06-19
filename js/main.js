@@ -5,6 +5,7 @@ import { ScrollSmoother } from "../vendor/gsap/ScrollSmoother.js";
 
 // Import your animation functions (you'll create these next)
 import { animateHero } from "./animations/hero.js";
+import { animateAbout } from "./animations/about.js";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -24,7 +25,7 @@ async function init() {
   // Load all sections
   await Promise.all([
     loadSection("sections/hero.html", "section-hero"),
-    // loadSection("sections/about.html", "section-about"),
+    loadSection("sections/about.html", "section-about"),
   ]);
 
   // Initialize ScrollSmoother
@@ -37,6 +38,7 @@ async function init() {
 
   // Kick off animations
   animateHero();
+  animateAbout();
 }
 
 document.addEventListener("DOMContentLoaded", init);

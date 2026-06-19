@@ -2,16 +2,51 @@
 @import "tailwindcss";
 
 @theme {
-  /* Define your company's brand colors, fonts, spacing, etc. here */
-  --font-serif: 'Your Serif Font', serif;
-  --font-mono: 'Your Mono Font', monospace;
-  --color-primary: #3B82F6;
-  --color-background: #FFFFFF;
-  /* ... all your other design tokens */
+  /* 60/30/10 Color Palette */
+  --color-primary: #046bd2;
+  /* 60% – Science Blue */
+  --color-secondary: #f8f9fa;
+  /* 30% – White/Off-white */
+  --color-accent: #4a5568;
+  /* 10% – Slate Gray */
 }
 
-/* Your custom global styles and utilities go here */
+/* Custom font utility classes – already imported in index.html */
+.font-title {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.font-text {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Global body */
 body {
-  background-color: var(--color-background);
-  /* ... */
+  background-color: var(--color-secondary);
+  font-family: "Lato", sans-serif;
+  /* fallback */
+}
+
+/* Year button hover (from about section) */
+.year-btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.year-btn:hover {
+  transform: translateX(4px);
+}
+
+/* Image fade transition for about */
+#about-image {
+  transition: opacity 0.5s ease;
+}
+
+/* Hero vignette (custom) */
+.hero-vignette {
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.38) 100%);
 }

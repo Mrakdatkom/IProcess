@@ -1,0 +1,141 @@
+<!-- sections/about.html -->
+<section id="about" class="min-h-screen w-full bg-secondary py-24 px-8 md:px-16 lg:px-24">
+
+  <!-- ── SECTION HEADER ── -->
+  <div id="about-header" class="mb-16 md:mb-20">
+    <p class="font-text text-xs tracking-[0.25em] uppercase text-accent/60 mb-3">Story</p>
+    <h2 class="font-title text-4xl md:text-5xl text-accent leading-tight mb-4">
+      our <em class="text-primary">history</em>
+    </h2>
+    <p class="font-text text-sm md:text-base text-accent/70 max-w-md leading-relaxed">
+      From a bold idea in 2021 to a growing platform serving franchisees and
+      merchants across the Philippines.
+    </p>
+  </div>
+
+  <!-- ── MAIN GRID: left year list · right content panel ── -->
+  <div class="flex flex-col lg:flex-row gap-12 lg:gap-0">
+
+    <!-- LEFT: Year list -->
+    <div id="about-year-list" class="flex flex-row lg:flex-col gap-4 lg:gap-0 lg:w-48 flex-shrink-0
+             overflow-x-auto lg:overflow-visible pb-2 lg:pb-0">
+
+      <!-- Active marker line (desktop only, JS-controlled top position) -->
+      <div id="about-year-marker"
+        class="hidden lg:block absolute w-0.5 bg-primary transition-all duration-500 ease-in-out"
+        style="left: 0; top: 0; height: 2.25rem;">
+      </div>
+
+      <!-- Year buttons — first one is active by default -->
+      <button data-year="2021"
+        class="year-btn group relative flex items-center gap-3 py-2 lg:py-2.5 pr-4 text-left flex-shrink-0 active"
+        aria-pressed="true">
+        <span class="year-tick hidden lg:block w-0.5 h-9 bg-primary flex-shrink-0"></span>
+        <span class="year-label font-text font-bold text-2xl lg:text-xl text-primary transition-all duration-300">
+          2021
+        </span>
+        <span class="year-sublabel font-text text-[10px] tracking-widest uppercase text-primary
+                     hidden lg:block whitespace-nowrap">
+          Where It Started
+        </span>
+      </button>
+
+      <button data-year="2022"
+        class="year-btn group relative flex items-center gap-3 py-2 lg:py-2.5 pr-4 text-left flex-shrink-0"
+        aria-pressed="false">
+        <span class="year-tick hidden lg:block w-0.5 h-9 bg-transparent flex-shrink-0"></span>
+        <span class="year-label font-text font-bold text-2xl lg:text-xl text-gray-500 transition-all duration-300">
+          2022
+        </span>
+        <span class="year-sublabel font-text text-[10px] tracking-widest uppercase text-primary
+                     hidden lg:block whitespace-nowrap">
+          First Partners
+        </span>
+      </button>
+
+      <button data-year="2023"
+        class="year-btn group relative flex items-center gap-3 py-2 lg:py-2.5 pr-4 text-left flex-shrink-0"
+        aria-pressed="false">
+        <span class="year-tick hidden lg:block w-0.5 h-9 bg-transparent flex-shrink-0"></span>
+        <span class="year-label font-text font-bold text-2xl lg:text-xl text-gray-500 transition-all duration-300">
+          2023
+        </span>
+        <span class="year-sublabel font-text text-[10px] tracking-widest uppercase text-primary
+                     hidden lg:block whitespace-nowrap">
+          Platform Growth
+        </span>
+      </button>
+
+      <button data-year="2024"
+        class="year-btn group relative flex items-center gap-3 py-2 lg:py-2.5 pr-4 text-left flex-shrink-0"
+        aria-pressed="false">
+        <span class="year-tick hidden lg:block w-0.5 h-9 bg-transparent flex-shrink-0"></span>
+        <span class="year-label font-text font-bold text-2xl lg:text-xl text-gray-500 transition-all duration-300">
+          2024
+        </span>
+        <span class="year-sublabel font-text text-[10px] tracking-widest uppercase text-primary
+                     hidden lg:block whitespace-nowrap">
+          Nationwide Expansion
+        </span>
+      </button>
+
+      <button data-year="2025"
+        class="year-btn group relative flex items-center gap-3 py-2 lg:py-2.5 pr-4 text-left flex-shrink-0"
+        aria-pressed="false">
+        <span class="year-tick hidden lg:block w-0.5 h-9 bg-transparent flex-shrink-0"></span>
+        <span class="year-label font-text font-bold text-2xl lg:text-xl text-gray-500 transition-all duration-300">
+          2025
+        </span>
+        <span class="year-sublabel font-text text-[10px] tracking-widest uppercase text-primary
+                     hidden lg:block whitespace-nowrap">
+          New Milestones
+        </span>
+      </button>
+
+      <button data-year="2026"
+        class="year-btn group relative flex items-center gap-3 py-2 lg:py-2.5 pr-4 text-left flex-shrink-0"
+        aria-pressed="false">
+        <span class="year-tick hidden lg:block w-0.5 h-9 bg-transparent flex-shrink-0"></span>
+        <span class="year-label font-text font-bold text-2xl lg:text-xl text-gray-500 transition-all duration-300">
+          2026
+        </span>
+        <span class="year-sublabel font-text text-[10px] tracking-widest uppercase text-primary
+                     hidden lg:block whitespace-nowrap">
+          Today
+        </span>
+      </button>
+
+    </div>
+
+    <div id="about-content" class="flex-1 lg:pl-12 xl:pl-16">
+      <!-- Image (full width within this container) -->
+      <div
+        class="relative w-full mb-8 overflow-hidden rounded-sm aspect-video md:aspect-[21/9] max-h-[420px] md:max-h-[560px] lg:max-h-[640px]">
+        <img id="about-image" src="../images/history/placeholder.jpg" alt="IProcess history"
+          class="w-full h-full object-cover object-center transition-opacity duration-500"
+          onerror="this.style.background='#e2e8f0'; this.removeAttribute('src');" />
+        <div id="about-image-fallback" class="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10
+             flex items-center justify-center pointer-events-none">
+        </div>
+      </div>
+
+      <!-- Ghost year + description (now aligned with image) -->
+      <div class="relative">
+        <!-- Ghost year -->
+        <p id="about-ghost-year" class="font-title absolute -top-8 left-0 leading-none select-none pointer-events-none
+             text-[6rem] md:text-[8rem] text-gray-300 transition-opacity duration-300"
+          style="letter-spacing: -0.04em; line-height: 1;">
+          2021
+        </p>
+
+        <!-- Description – now spans full width, no max-width constraint -->
+        <div class="relative z-10 pt-6">
+          <p id="about-description" class="font-text text-sm md:text-base text-accent/80 leading-relaxed
+               transition-opacity duration-300">
+            <!-- Injected by JS -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
