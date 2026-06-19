@@ -1,0 +1,17 @@
+/* styles/main.css */
+@import "tailwindcss";
+
+@theme {
+  /* Define your company's brand colors, fonts, spacing, etc. here */
+  --font-serif: 'Your Serif Font', serif;
+  --font-mono: 'Your Mono Font', monospace;
+  --color-primary: #3B82F6;
+  --color-background: #FFFFFF;
+  /* ... all your other design tokens */
+}
+
+/* Your custom global styles and utilities go here */
+body {
+  background-color: var(--color-background);
+  /* ... */
+}
