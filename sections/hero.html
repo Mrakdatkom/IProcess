@@ -1,4 +1,118 @@
-<section id="hero">
-  <h1>Welcome to My Company</h1>
-  <p>We build amazing things.</p>
+<section id="hero" class="relative h-screen w-full overflow-hidden flex flex-col">
+  <!--
+    ═══════════════════════════════════════════════════════
+    DEPTH STACK (bottom → top z-order):
+      z-0  · #hero-bg   — sky + upper buildings (background)
+      z-10 · #hero-text — headline lives HERE (between layers)
+      z-20 · #hero-fg   — lower building facades (foreground, overlaps text)
+      z-30 · nav        — always on top
+    ═══════════════════════════════════════════════════════
+  -->
+
+  <!-- ── LAYER 1: BACKGROUND (sky + upper buildings) ── -->
+  <div id="hero-bg" class="absolute inset-0 z-0">
+    <img src="../images/hero-bg.png" alt="" aria-hidden="true" class="w-full h-full object-cover object-center" />
+    <!-- Subtle dark vignette so white text is readable against sky -->
+    <div class="absolute inset-0"
+      style="background: radial-gradient(ellipse at center, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.38) 100%);"></div>
+  </div>
+
+  <!-- ── LAYER 2: HEADLINE (sits between background and foreground) ── -->
+  <div id="hero-text" class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+    <h1 id="hero-headline" class="text-center font-extrabold text-white leading-none select-none" style="
+        font-family: 'Montserrat', sans-serif;
+        font-size: clamp(3.5rem, 12vw, 10rem);
+        letter-spacing: -0.04em;
+        text-shadow: 0 4px 40px rgba(0,0,0,0.55);
+      ">
+      <span id="hero-word-1" class="block overflow-hidden">
+        <span class="word-inner block">Simplify</span>
+      </span>
+      <span id="hero-word-2" class="block overflow-hidden">
+        <span class="word-inner block">Business</span>
+      </span>
+      <span id="hero-word-3" class="block overflow-hidden" style="color: #046bd2;">
+        <span class="word-inner block">Transactions</span>
+      </span>
+    </h1>
+  </div>
+
+  <!-- ── LAYER 3: FOREGROUND (building facades — overlaps the headline) ── -->
+  <div id="hero-fg" class="absolute inset-0 z-20 pointer-events-none">
+    <img src="../images/hero-fg.png" alt="" aria-hidden="true" class="w-full h-full object-cover object-center" />
+  </div>
+
+  <!-- ── NAVBAR (always on top) ── -->
+  <nav id="hero-nav" class="relative z-30 w-full flex items-center justify-between px-8 md:px-16 py-7">
+    <!-- Logo + Brand -->
+    <a href="#" class="flex items-center gap-3" id="hero-logo">
+      <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0">
+        <img src="../images/iprocess-logo.png" alt="" srcset="">
+      </div>
+      <span class="text-xl font-bold"
+        style="font-family: 'Montserrat', sans-serif; color: #F8F9FA; letter-spacing: -0.02em;">IProcess</span>
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <ul id="hero-nav-links" class="hidden md:flex items-center gap-8" style="font-family: 'Open Sans', sans-serif;">
+      <li><a href="#"
+          class="nav-link text-sm font-semibold text-white/80 hover:text-white transition-colors duration-200 relative after:block after:h-px after:bg-[#046bd2] after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">Home</a>
+      </li>
+      <li><a href="#about"
+          class="nav-link text-sm font-semibold text-white/80 hover:text-white transition-colors duration-200 relative after:block after:h-px after:bg-[#046bd2] after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">About</a>
+      </li>
+      <li><a href="#franchise"
+          class="nav-link text-sm font-semibold text-white/80 hover:text-white transition-colors duration-200 relative after:block after:h-px after:bg-[#046bd2] after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">Franchise</a>
+      </li>
+      <li><a href="#merchant"
+          class="nav-link text-sm font-semibold text-white/80 hover:text-white transition-colors duration-200 relative after:block after:h-px after:bg-[#046bd2] after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">Merchant</a>
+      </li>
+      <li><a href="#contact"
+          class="nav-link text-sm font-semibold text-white/80 hover:text-white transition-colors duration-200 relative after:block after:h-px after:bg-[#046bd2] after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">Contact</a>
+      </li>
+    </ul>
+
+    <!-- Nav CTA -->
+    <a href="#contact" id="hero-nav-cta"
+      class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold text-white transition-all duration-300"
+      style="font-family: 'Open Sans', sans-serif; background-color: #046bd2;"
+      onmouseover="this.style.backgroundColor='#0358b0'" onmouseout="this.style.backgroundColor='#046bd2'">
+      Contact Us
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="white" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </a>
+
+    <!-- Mobile Hamburger -->
+    <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 p-2 z-30" aria-label="Open menu">
+      <span class="hamburger-line block w-6 h-0.5 bg-white rounded-full"></span>
+      <span class="hamburger-line block w-6 h-0.5 bg-white rounded-full"></span>
+      <span class="hamburger-line block w-4 h-0.5 bg-white rounded-full"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobile-menu"
+    class="fixed inset-0 z-50 flex flex-col justify-center items-center gap-8 opacity-0 pointer-events-none"
+    style="background: rgba(10, 20, 40, 0.97);">
+    <button id="mobile-close-btn" class="absolute top-6 right-8 text-white/70 hover:text-white" aria-label="Close menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </button>
+    <ul class="flex flex-col items-center gap-6" style="font-family: 'Open Sans', sans-serif;">
+      <li><a href="#" class="mobile-nav-link text-2xl font-semibold text-white/80 hover:text-white">Home</a></li>
+      <li><a href="#about" class="mobile-nav-link text-2xl font-semibold text-white/80 hover:text-white">About</a></li>
+      <li><a href="#franchise"
+          class="mobile-nav-link text-2xl font-semibold text-white/80 hover:text-white">Franchise</a></li>
+      <li><a href="#merchant" class="mobile-nav-link text-2xl font-semibold text-white/80 hover:text-white">Merchant</a>
+      </li>
+      <li><a href="#contact" class="mobile-nav-link text-2xl font-semibold text-white/80 hover:text-white">Contact</a>
+      </li>
+    </ul>
+    <a href="#contact" class="mt-4 px-8 py-3 rounded-lg text-base font-bold text-white"
+      style="background-color: #046bd2; font-family: 'Open Sans', sans-serif;">Contact Us</a>
+  </div>
+
 </section>
