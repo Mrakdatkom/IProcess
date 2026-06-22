@@ -17,8 +17,8 @@
   <div class="flex flex-col lg:flex-row gap-12 lg:gap-0">
 
     <!-- LEFT: Year list -->
-    <div id="about-year-list" class="flex flex-row lg:flex-col gap-4 lg:gap-0 lg:w-48 flex-shrink-0
-             overflow-x-auto lg:overflow-visible pb-2 lg:pb-0">
+    <div id="about-year-list"
+      class="flex flex-row flex-wrap lg:flex-col gap-2 md:gap-4 lg:gap-0 lg:w-48 flex-shrink-0 pb-2 lg:pb-0">
 
       <!-- Active marker line (desktop only, JS-controlled top position) -->
       <div id="about-year-marker"
@@ -109,8 +109,7 @@
 
     <div id="about-content" class="flex-1 lg:pl-12 xl:pl-16">
       <!-- Image (full width within this container) -->
-      <div
-        class="relative w-full mb-8 overflow-hidden rounded-sm aspect-video md:aspect-[21/9] max-h-[420px] md:max-h-[560px] lg:max-h-[640px]">
+      <div class="relative w-full mb-8 overflow-hidden rounded-sm aspect-[5/2] md:aspect-[3/1]">
         <img id="about-image" src="../images/history/placeholder.jpg" alt="IProcess history"
           class="w-full h-full object-cover object-center transition-opacity duration-500"
           onerror="this.style.background='#e2e8f0'; this.removeAttribute('src');" />
