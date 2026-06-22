@@ -74,6 +74,8 @@ function duplicateForSeamlessLoop(originalItems) {
   const container = document.querySelector(".marquee-wrapper");
   if (!container) return originalItems;
 
+  container.querySelectorAll("[data-marquee-clone='true']").forEach(clone => clone.remove());
+
   // Get the total width of the original set (including gaps)
   let originalWidth = 0;
   originalItems.forEach(item => {
@@ -89,13 +91,17 @@ function duplicateForSeamlessLoop(originalItems) {
   const scrollContainer = document.querySelector(".mask-fade-horizontal");
   const viewportWidth = scrollContainer ? scrollContainer.clientWidth : window.innerWidth;
 
-  // How many times do we need to duplicate to fill at least 2x the viewport?
-  const neededCopies = Math.ceil((viewportWidth * 2) / originalWidth) + 50;
+  if (!originalWidth) return originalItems;
+
+  // Add only enough copies to keep a seamless loop. The previous +50 multiplier
+  // created hundreds of logo nodes on mobile before the marquee could start.
+  const neededCopies = Math.min(6, Math.max(2, Math.ceil((viewportWidth * 2.5) / originalWidth) + 1));
 
   // Clone the original items and append them to the container
   for (let i = 0; i < neededCopies; i++) {
     originalItems.forEach(item => {
       const clone = item.cloneNode(true);
+      clone.dataset.marqueeClone = "true";
       // Remove any existing GSAP inline transforms (just to be safe)
       gsap.set(clone, { clearProps: "transform" });
       container.appendChild(clone);
@@ -113,23 +119,10 @@ export function animatePartners() {
     return;
   }
 
-  // Wait for images to load before measuring widths
-  const images = originalMarqueeItems.map(item => item.querySelector('img')).filter(img => img);
-  if (images.length) {
-    const loadPromises = images.map(img => {
-      if (img.complete) return Promise.resolve();
-      return new Promise(resolve => { img.onload = resolve; img.onerror = resolve; });
-    });
-
-    Promise.all(loadPromises).then(() => {
-      // Clone items to fill the container seamlessly
-      const allItems = duplicateForSeamlessLoop(originalMarqueeItems);
-      startMarquee(allItems);
-    });
-  } else {
+  requestAnimationFrame(() => {
     const allItems = duplicateForSeamlessLoop(originalMarqueeItems);
     startMarquee(allItems);
-  }
+  });
 }
 
 function startMarquee(marqueeItems) {

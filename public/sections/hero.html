@@ -11,7 +11,8 @@
 
   <!-- ── LAYER 1: BACKGROUND (sky + upper buildings) ── -->
   <div id="hero-bg" class="absolute inset-0 z-0">
-    <img src="../images/hero-bg.png" alt="" aria-hidden="true" class="w-full h-full object-cover object-center" />
+    <img src="../images/hero-bg.png" alt="" aria-hidden="true" width="1920" height="1080" loading="eager"
+      decoding="async" fetchpriority="high" class="w-full h-full object-cover object-center" />
     <!-- Subtle dark vignette so white text is readable against sky -->
     <div class="absolute inset-0"
       style="background: radial-gradient(ellipse at center, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.38) 100%);"></div>
@@ -39,7 +40,8 @@
 
   <!-- ── LAYER 3: FOREGROUND (building facades — overlaps the headline) ── -->
   <div id="hero-fg" class="absolute inset-0 z-20 pointer-events-none">
-    <img src="../images/hero-fg.png" alt="" aria-hidden="true" class="w-full h-full object-cover object-center" />
+    <img src="../images/hero-fg.png" alt="" aria-hidden="true" width="1920" height="1080" loading="eager"
+      decoding="async" fetchpriority="high" class="w-full h-full object-cover object-center" />
   </div>
 
   <!-- ── NAVBAR (always on top) ── -->
@@ -47,7 +49,7 @@
     <!-- Logo + Brand -->
     <a href="#" class="flex items-center gap-3" id="hero-logo">
       <div class="w-15 h-15 rounded-lg flex items-center justify-center flex-shrink-0">
-        <img src="../images/iprocess-logo.png" alt="" srcset="">
+        <img src="../images/iprocess-logo.png" alt="" width="120" height="120" loading="eager" decoding="async">
       </div>
       <span class="text-xl font-bold font-title" style="color: #F8F9FA; letter-spacing: -0.02em;">IProcess</span>
     </a>
