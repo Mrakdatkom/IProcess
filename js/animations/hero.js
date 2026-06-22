@@ -23,8 +23,8 @@
  * Requires: gsap + ScrollTrigger (both available in vendor/gsap)
  */
 
-import { gsap } from '../../vendor/gsap/index.js';
-import { ScrollTrigger } from "../../vendor/gsap/ScrollTrigger.js";
+import { gsap } from '../../public/vendor/gsap/index.js';
+import { ScrollTrigger } from "../../public/vendor/gsap/ScrollTrigger.js";
 
 gsap.registerPlugin(ScrollTrigger);
 

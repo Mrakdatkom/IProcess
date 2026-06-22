@@ -1,7 +1,7 @@
 // js/main.js
-import gsap from "../vendor/gsap/index.js";
-import { ScrollTrigger } from "../vendor/gsap/ScrollTrigger.js";
-import { ScrollSmoother } from "../vendor/gsap/ScrollSmoother.js";
+import gsap from "../public/vendor/gsap/index.js";
+import { ScrollTrigger } from "../public/vendor/gsap/ScrollTrigger.js";
+import { ScrollSmoother } from "../public/vendor/gsap/ScrollSmoother.js";
 
 // Import your animation functions (you'll create these next)
 import { animateHero } from "./animations/hero.js";
@@ -27,11 +27,11 @@ async function loadSection(snippetPath, targetId) {
 async function init() {
   // Load all sections
   await Promise.all([
-    loadSection("sections/hero.html", "section-hero"),
-    loadSection("sections/partners.html", "section-partners"),
-    loadSection("sections/about.html", "section-about"),
-    loadSection("sections/choose-us.html", "section-choose-us"),
-    loadSection("sections/services.html", "section-services"),
+    loadSection("/sections/hero.html", "section-hero"),
+    loadSection("/sections/partners.html", "section-partners"),
+    loadSection("/sections/about.html", "section-about"),
+    loadSection("/sections/choose-us.html", "section-choose-us"),
+    loadSection("/sections/services.html", "section-services"),
   ]);
 
   // Initialize ScrollSmoother

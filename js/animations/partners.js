@@ -1,4 +1,4 @@
-import gsap from "../../vendor/gsap/index.js";
+import gsap from "../../public/vendor/gsap/index.js";
 
 // --- horizontalLoop (unchanged, works with any number of items) ---
 function horizontalLoop(items, config) {
