@@ -119,9 +119,28 @@ export function animatePartners() {
     return;
   }
 
-  requestAnimationFrame(() => {
-    const allItems = duplicateForSeamlessLoop(originalMarqueeItems);
-    startMarquee(allItems);
+  // Collect all images inside the marquee items
+  const images = originalMarqueeItems
+    .map(item => item.querySelector("img"))
+    .filter(Boolean);
+
+  const waitForImages = images.map(img => {
+    if (img.complete && img.naturalWidth > 0) return Promise.resolve();
+    return new Promise(resolve => {
+      img.addEventListener("load", resolve, { once: true });
+      img.addEventListener("error", resolve, { once: true }); // don't hang on broken imgs
+    });
+  });
+
+  // Only start marquee after ALL images have loaded and browser has painted
+  Promise.all(waitForImages).then(() => {
+    requestAnimationFrame(() => {
+      // One extra rAF to ensure layout is flushed after images load
+      requestAnimationFrame(() => {
+        const allItems = duplicateForSeamlessLoop(originalMarqueeItems);
+        startMarquee(allItems);
+      });
+    });
   });
 }
 
