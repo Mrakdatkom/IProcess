@@ -7,6 +7,7 @@ import { ScrollSmoother } from "../vendor/gsap/ScrollSmoother.js";
 import { animateHero } from "./animations/hero.js";
 import { animateAbout } from "./animations/about.js";
 import { animateChooseUs } from "./animations/choose-us.js";
+import { animatePartners } from "./animations/partners.js";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -26,6 +27,7 @@ async function init() {
   // Load all sections
   await Promise.all([
     loadSection("sections/hero.html", "section-hero"),
+    loadSection("sections/partners.html", "section-partners"),
     loadSection("sections/about.html", "section-about"),
     loadSection("sections/choose-us.html", "section-choose-us"),
   ]);
@@ -42,6 +44,7 @@ async function init() {
   animateHero();
   animateAbout();
   animateChooseUs();
+  animatePartners();
 }
 
 document.addEventListener("DOMContentLoaded", init);
