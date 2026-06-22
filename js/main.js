@@ -8,6 +8,7 @@ import { animateHero } from "./animations/hero.js";
 import { animateAbout } from "./animations/about.js";
 import { animateChooseUs } from "./animations/choose-us.js";
 import { animatePartners } from "./animations/partners.js";
+import { animateServices } from "./animations/services.js";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -30,6 +31,7 @@ async function init() {
     loadSection("sections/partners.html", "section-partners"),
     loadSection("sections/about.html", "section-about"),
     loadSection("sections/choose-us.html", "section-choose-us"),
+    loadSection("sections/services.html", "section-services"),
   ]);
 
   // Initialize ScrollSmoother
@@ -45,6 +47,7 @@ async function init() {
   animateAbout();
   animateChooseUs();
   animatePartners();
+  animateServices();
 }
 
 document.addEventListener("DOMContentLoaded", init);

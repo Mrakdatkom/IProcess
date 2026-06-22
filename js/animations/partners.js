@@ -90,7 +90,7 @@ function duplicateForSeamlessLoop(originalItems) {
   const viewportWidth = scrollContainer ? scrollContainer.clientWidth : window.innerWidth;
 
   // How many times do we need to duplicate to fill at least 2x the viewport?
-  const neededCopies = Math.ceil((viewportWidth * 2) / originalWidth) + 1;
+  const neededCopies = Math.ceil((viewportWidth * 2) / originalWidth) + 50;
 
   // Clone the original items and append them to the container
   for (let i = 0; i < neededCopies; i++) {
