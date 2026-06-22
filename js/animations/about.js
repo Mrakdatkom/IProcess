@@ -4,7 +4,7 @@
  * Handles the interactive year timeline in the About / History section.
  *
  * INTERACTIONS:
- *   - Hover OR click on a year → cross-fade image, ghost year, description
+ *   - Hover OR click on a year → instantly swap image, ghost year, description
  *   - Active year: full opacity label, visible tick line, sublabel shown
  *   - Inactive years: muted (text-gray-500)
  *   - Desktop: vertical left-side list with a sliding marker line
@@ -24,7 +24,6 @@ import { ScrollTrigger } from '../../public/vendor/gsap/ScrollTrigger.js';
 gsap.registerPlugin(ScrollTrigger);
 
 // ── Timeline data ────────────────────────────────────────────────────────────
-// TODO: Replace placeholder image paths and descriptions with real content.
 const TIMELINE = [
   {
     year: '2021',
@@ -60,11 +59,22 @@ const TIMELINE = [
     year: '2026',
     sublabel: 'Today',
     image: '../images/history/2026.png',
-    description: `Today, the current generation of iProcess storefronts represents a fully realized smart-hub network operating as a staple of daily digital commerce across regions like Victorias City. The aesthetic is profoundly polished and modern, relying on clean architectural lines, welcoming ambient lighting, and high-contrast digital displays that have completely replaced old paper banners. The layout functions seamlessly with the current cashless landscape, incorporating localized self-service touchscreen kiosks where customers can independently process utility bills, ticket printing, and micro-banking tasks without standing in long teller queues. For complex processes, tellers utilize highly efficient, interconnected tablet systems linked to centralized cloud software, ensuring split-second verification for critical services. The physical space is maximized for automated convenience, frequently showcasing integrated 24/7 smart-locker portals built into the storefront to accommodate round-the-clock neighborhood parcel collection and document retrieval.  `,
+    description: `Today, the current generation of iProcess storefronts represents a fully realized smart-hub network operating as a staple of daily digital commerce across regions like Victorias City. The aesthetic is profoundly polished and modern, relying on clean architectural lines, welcoming ambient lighting, and high-contrast digital displays that have completely replaced old paper banners. The layout functions seamlessly with the current cashless landscape, incorporating localized self-service touchscreen kiosks where customers can independently process utility bills, ticket printing, and micro-banking tasks without standing in long teller queues. For complex processes, tellers utilize highly efficient, interconnected tablet systems linked to centralized cloud software, ensuring split-second verification for critical services. The physical space is maximized for automated convenience, frequently showcasing integrated 24/7 smart-locker portals built into the storefront to accommodate round-the-clock neighborhood parcel collection and document retrieval.`,
   },
 ];
 
+// ── Preload all images ──────────────────────────────────────────────────────
+function preloadImages() {
+  TIMELINE.forEach(({ image }) => {
+    const img = new Image();
+    img.src = image;
+  });
+}
+
 export function animateAbout() {
+
+  // --- Preload images to speed up transitions ---
+  preloadImages();
 
   // --- DOM refs ------------------------------------------------------------
   const buttons = document.querySelectorAll('.year-btn');
@@ -81,7 +91,7 @@ export function animateAbout() {
   // --- Internal functions --------------------------------------------------
 
   function swapContent(data) {
-    // Image
+    // Instantly swap image (no fade)
     imageEl.src = data.image;
     imageEl.alt = `IProcess ${data.year}`;
 
@@ -109,9 +119,9 @@ export function animateAbout() {
       btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
 
       if (label) {
-        label.classList.toggle('text-primary', isActive);    // active = blue
+        label.classList.toggle('text-primary', isActive);
         label.classList.toggle('font-bold', isActive);
-        label.classList.toggle('text-gray-500', !isActive);  // inactive = medium gray
+        label.classList.toggle('text-gray-500', !isActive);
       }
 
       if (tick) {
@@ -141,26 +151,9 @@ export function animateAbout() {
       }
     });
 
-    // Cross-fade image + ghost year + description
-    if (animate) {
-      // Fade out
-      gsap.to([imageEl, ghostYear, description], {
-        opacity: 0,
-        duration: 0.22,
-        ease: 'power2.in',
-        onComplete: () => {
-          swapContent(data);
-          // Fade in
-          gsap.to([imageEl, ghostYear, description], {
-            opacity: 1,
-            duration: 0.38,
-            ease: 'power2.out',
-          });
-        },
-      });
-    } else {
-      swapContent(data);
-    }
+    // ─── INSTANT SWAP: No fade in/out ──────────────────────────────────────
+    // Just swap the content immediately without opacity animations
+    swapContent(data);
   }
 
   // --- Initialise: set first year active after a tiny delay ---------------
@@ -203,7 +196,4 @@ export function animateAbout() {
       toggleActions: 'play none none none',
     },
   });
-
-  // ─── NOTE: Year buttons are NOT animated on entry – they are visible from the start.
-  // This avoids the issue where ScrollTrigger would keep them hidden if it didn't fire.
 }
