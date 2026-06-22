@@ -12,7 +12,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "@tailwindcss/vite": "^4.3.1",
     "gsap": "^3.15.0",
