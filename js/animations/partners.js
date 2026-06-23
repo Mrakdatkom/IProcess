@@ -148,7 +148,7 @@ function startMarquee(marqueeItems) {
   const marqueeTimeline = horizontalLoop(marqueeItems, {
     repeat: -1,
     paddingRight: 0,
-    speed: 0.5,
+    speed: 0.1,
   });
 
   const container = document.querySelector(".marquee-wrapper");

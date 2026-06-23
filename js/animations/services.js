@@ -6,7 +6,7 @@
  *   - Number: dims → primary color
  *   - Arrow: fades in + nudges right on active
  *   - Key points: max-h:0 + opacity:0 → expanded + opacity:1 (CSS transition)
- *   - Right panel: cross-fades image, updates label pill + progress dots
+ *   - Right panel: instantly swaps image (no fade)
  *
  * SCROLL ENTRANCE:
  *   - Header slides up
@@ -55,7 +55,20 @@ const SERVICES = [
   },
 ];
 
+// ── Preload all images ──────────────────────────────────────────────────────
+function preloadImages() {
+  SERVICES.forEach(({ image }) => {
+    if (image && image !== '') {
+      const img = new Image();
+      img.src = image;
+    }
+  });
+}
+
 export function animateServices() {
+
+  // --- Preload images to speed up transitions ---
+  preloadImages();
 
   const items = document.querySelectorAll('.service-item');
   const imageEl = document.getElementById('services-image');
@@ -112,8 +125,8 @@ export function animateServices() {
       }
     });
 
-    // ── Right panel: image cross-fade ─────────────────────────────────────
-    updateRightPanel(data, animate);
+    // ── Right panel: instantly swap image (no fade) ──────────────────────
+    updateRightPanel(data);
 
     // ── Progress dots + counter ───────────────────────────────────────────
     const idx = parseInt(id);
@@ -129,7 +142,7 @@ export function animateServices() {
   }
 
   // ── updateRightPanel ──────────────────────────────────────────────────────
-  function updateRightPanel(data, animate) {
+  function updateRightPanel(data) {
     if (activeLabel) activeLabel.textContent = data.label;
     if (imgLabel) imgLabel.textContent = data.label;
 
@@ -137,41 +150,26 @@ export function animateServices() {
 
     const hasImage = data.image && data.image !== '';
 
-    if (!animate) {
-      // Instant swap on init
-      if (hasImage) {
-        imageEl.src = data.image;
-        imageEl.alt = data.label;
-        imageEl.style.opacity = '1';
-        if (placeholder) placeholder.style.opacity = '0';
-      }
-      return;
-    }
-
-    // Animated cross-fade
+    // ─── INSTANT SWAP: No fade animations ──────────────────────────────────
     if (hasImage) {
-      gsap.to(imageEl, {
-        opacity: 0,
-        duration: 0.2,
-        ease: 'power2.in',
-        onComplete: () => {
-          imageEl.src = data.image;
-          imageEl.alt = data.label;
-          imageEl.onload = () => {
-            gsap.to(imageEl, { opacity: 1, duration: 0.4, ease: 'power2.out' });
-            if (placeholder) gsap.to(placeholder, { opacity: 0, duration: 0.3 });
-          };
-          imageEl.onerror = () => {
-            // Image not found — show placeholder
-            imageEl.style.opacity = '0';
-            if (placeholder) gsap.to(placeholder, { opacity: 1, duration: 0.3 });
-          };
-        },
-      });
+      // Instantly swap the image
+      imageEl.src = data.image;
+      imageEl.alt = data.label;
+      imageEl.style.opacity = '1';
+
+      // Hide placeholder immediately
+      if (placeholder) placeholder.style.opacity = '0';
+
+      // Handle image loading errors
+      imageEl.onerror = () => {
+        // If image fails to load, show placeholder
+        imageEl.style.opacity = '0';
+        if (placeholder) placeholder.style.opacity = '1';
+      };
     } else {
-      // No image — keep / show placeholder
-      gsap.to(imageEl, { opacity: 0, duration: 0.2 });
-      if (placeholder) gsap.to(placeholder, { opacity: 1, duration: 0.3 });
+      // No image — show placeholder
+      imageEl.style.opacity = '0';
+      if (placeholder) placeholder.style.opacity = '1';
       if (imgLabel) imgLabel.textContent = data.label;
     }
   }
