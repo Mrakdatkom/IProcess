@@ -13,6 +13,8 @@ import { animateFooter } from "./animations/footer.js";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
+let smoother = null; // Store smoother globally
+
 async function loadSection(snippetPath, targetId) {
   const target = document.getElementById(targetId);
   if (!target) return false;
@@ -49,10 +51,12 @@ function refreshScroll() {
 async function init() {
   // Load hero first
   const heroLoaded = await loadSection("/sections/hero.html", "section-hero");
-  const smoother = createSmoothScroller();
+  smoother = createSmoothScroller();
 
-  // ─── DELEGATED CLICK HANDLER FOR ALL NAV LINKS ───
-  // This works for both hero and footer links, regardless of when they're loaded
+  // Store smoother globally for drawer links
+  window._smoother = smoother;
+
+  // ─── DELEGATED CLICK HANDLER FOR NAV LINKS INSIDE SMOOTH-CONTENT ───
   const smoothContent = document.getElementById('smooth-content');
   if (smoothContent && smoother) {
     smoothContent.addEventListener('click', (e) => {
@@ -67,8 +71,28 @@ async function init() {
     });
   }
 
+  // ─── HANDLE DRAWER LINKS (outside smooth-content) ──────────────────────
+  // This listens for clicks on [data-section] elements anywhere on the page
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('[data-section]');
+    if (!target) return;
+
+    // Check if the link is inside the drawer
+    const drawer = document.getElementById('mobile-drawer');
+    if (drawer && drawer.contains(target) && smoother) {
+      const sectionId = target.dataset.section;
+      if (sectionId) {
+        e.preventDefault();
+        smoother.scrollTo(`#${sectionId}`, true, 'center center');
+
+        // Close the drawer after clicking
+        const closeBtn = document.getElementById('drawer-close-btn');
+        if (closeBtn) closeBtn.click();
+      }
+    }
+  });
+
   // ─── FALLBACK: Direct event binding for hero links (if they exist) ───
-  // This ensures hero links work immediately while the delegated listener also handles them
   const sectionMap = {
     'hero-link': 'section-hero',
     'partners-link': 'section-partners',
@@ -116,23 +140,20 @@ async function init() {
   if (smoother) smoother.refresh();
 
   // ─── HANDLE FOOTER SERVICE LINKS ────────────────────────────────────────
-  // Wait for footer to load, then bind click events
   const footerLinks = document.querySelectorAll('.footer-service-link');
   footerLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      
+
       const serviceId = link.dataset.service;
       if (!serviceId) return;
-      
+
       // Scroll to the Services section first
-      const servicesSection = document.getElementById('section-services');
-      if (servicesSection && smoother) {
+      if (smoother) {
         smoother.scrollTo('#section-services', true, 'center center');
       }
-      
+
       // Then activate the service after a small delay
-      // (to allow the scroll animation to start)
       setTimeout(() => {
         if (window.activateService) {
           window.activateService(serviceId, true);
@@ -146,6 +167,33 @@ async function init() {
       }, 400);
     });
   });
+
+  // ─── SETUP DRAWER LINKS (additional safety) ────────────────────────────
+  // This ensures drawer links work even if they're added after the initial load
+  function setupDrawerLinks() {
+    const drawerLinks = document.querySelectorAll('#mobile-drawer [data-section]');
+    drawerLinks.forEach(link => {
+      // Only add listener if not already added (avoid duplicates)
+      if (!link.dataset.drawerListener) {
+        link.dataset.drawerListener = 'true';
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const sectionId = link.dataset.section;
+          if (sectionId && smoother) {
+            smoother.scrollTo(`#${sectionId}`, true, 'center center');
+
+            // Close the drawer
+            const closeBtn = document.getElementById('drawer-close-btn');
+            if (closeBtn) closeBtn.click();
+          }
+        });
+      }
+    });
+  }
+
+  // Run immediately and also after a delay to catch any late-added links
+  setTimeout(setupDrawerLinks, 100);
+  setTimeout(setupDrawerLinks, 500);
 }
 
 document.addEventListener("DOMContentLoaded", init);

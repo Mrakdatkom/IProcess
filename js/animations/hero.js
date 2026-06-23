@@ -160,13 +160,6 @@ function initDrawer() {
       ease: 'power3.out',
     });
 
-    // Stagger drawer links in
-    gsap.from('.drawer-link', {
-      x: 20, opacity: 0, stagger: 0.06,
-      duration: 0.4, delay: 0.15,
-      ease: 'power2.out', clearProps: 'transform',
-    });
-
     // Morph hamburger → X
     gsap.to(hamLines[0], { rotation: 45, y: 8, duration: 0.3, ease: 'power2.inOut' });
     gsap.to(hamLines[1], { opacity: 0, duration: 0.15 });
