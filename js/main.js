@@ -3,7 +3,7 @@ import gsap from "../public/vendor/gsap/index.js";
 import { ScrollTrigger } from "../public/vendor/gsap/ScrollTrigger.js";
 import { ScrollSmoother } from "../public/vendor/gsap/ScrollSmoother.js";
 
-// Import your animation functions (you'll create these next)
+// Import your animation functions
 import { animateHero } from "./animations/hero.js";
 import { animateAbout } from "./animations/about.js";
 import { animateChooseUs } from "./animations/choose-us.js";
@@ -47,9 +47,46 @@ function refreshScroll() {
 }
 
 async function init() {
+  // Load hero first
   const heroLoaded = await loadSection("/sections/hero.html", "section-hero");
   const smoother = createSmoothScroller();
 
+  // ─── DELEGATED CLICK HANDLER FOR ALL NAV LINKS ───
+  // This works for both hero and footer links, regardless of when they're loaded
+  const smoothContent = document.getElementById('smooth-content');
+  if (smoothContent && smoother) {
+    smoothContent.addEventListener('click', (e) => {
+      const target = e.target.closest('[data-section]');
+      if (!target) return;
+
+      const sectionId = target.dataset.section;
+      if (sectionId) {
+        e.preventDefault();
+        smoother.scrollTo(`#${sectionId}`, true, 'center center');
+      }
+    });
+  }
+
+  // ─── FALLBACK: Direct event binding for hero links (if they exist) ───
+  // This ensures hero links work immediately while the delegated listener also handles them
+  const sectionMap = {
+    'hero-link': 'section-hero',
+    'partners-link': 'section-partners',
+    'about-link': 'section-about',
+    'services-link': 'section-services',
+  };
+
+  Object.entries(sectionMap).forEach(([buttonId, sectionId]) => {
+    const btn = document.getElementById(buttonId);
+    if (btn && smoother) {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        smoother.scrollTo(`#${sectionId}`, true, 'center center');
+      });
+    }
+  });
+
+  // ─── LOAD SECTIONS AND ANIMATE ───
   if (heroLoaded) {
     animateHero();
     refreshScroll();
@@ -77,6 +114,38 @@ async function init() {
   }
 
   if (smoother) smoother.refresh();
+
+  // ─── HANDLE FOOTER SERVICE LINKS ────────────────────────────────────────
+  // Wait for footer to load, then bind click events
+  const footerLinks = document.querySelectorAll('.footer-service-link');
+  footerLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      const serviceId = link.dataset.service;
+      if (!serviceId) return;
+      
+      // Scroll to the Services section first
+      const servicesSection = document.getElementById('section-services');
+      if (servicesSection && smoother) {
+        smoother.scrollTo('#section-services', true, 'center center');
+      }
+      
+      // Then activate the service after a small delay
+      // (to allow the scroll animation to start)
+      setTimeout(() => {
+        if (window.activateService) {
+          window.activateService(serviceId, true);
+        } else {
+          // Fallback: try to find and click the service item
+          const serviceItem = document.querySelector(`.service-item[data-service="${serviceId}"]`);
+          if (serviceItem) {
+            serviceItem.click();
+          }
+        }
+      }, 400);
+    });
+  });
 }
 
 document.addEventListener("DOMContentLoaded", init);

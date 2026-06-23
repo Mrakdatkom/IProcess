@@ -141,6 +141,9 @@ export function animateServices() {
     if (countEl) countEl.textContent = id.padStart(2, '0');
   }
 
+  window.activateService = activateService;
+
+
   // ── updateRightPanel ──────────────────────────────────────────────────────
   function updateRightPanel(data) {
     if (activeLabel) activeLabel.textContent = data.label;

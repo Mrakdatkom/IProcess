@@ -18,7 +18,7 @@
       <div class="flex-shrink-0 sm:w-[42%] lg:w-auto mb-10 sm:mb-0">
 
         <!-- Logo + Name -->
-        <a href="#" class="flex items-center gap-3 mb-5">
+        <button id="hero-link" class="flex items-center gap-3 mb-5">
           <div class="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center flex-shrink-0">
             <img src="/images/iprocess-logo.png" alt="IProcess logo" class="w-full h-full object-contain rounded-lg"
               style="filter: brightness(0) invert(1);" />
@@ -31,7 +31,7 @@
               Simplify Business Transactions
             </span>
           </div>
-        </a>
+        </button>
 
         <!-- Tagline -->
         <p class="font-text text-sm text-white/60 leading-relaxed mb-6 max-w-xs">
@@ -41,14 +41,14 @@
 
         <!-- Social links -->
         <div class="flex items-center gap-3">
-          <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-lg flex items-center justify-center
+          <a href="https://www.facebook.com/iProcessbacolod" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 rounded-lg flex items-center justify-center
                    bg-white/10 border border-white/15 text-white/60
                    hover:bg-white/20 hover:text-white transition-all duration-200">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
             </svg>
           </a>
-          <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-lg flex items-center justify-center
+          <!-- <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-lg flex items-center justify-center
                    bg-white/10 border border-white/15 text-white/60
                    hover:bg-white/20 hover:text-white transition-all duration-200">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -67,7 +67,7 @@
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
             </svg>
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -86,46 +86,39 @@
           </p>
           <ul class="space-y-3">
             <li>
-              <a href="#hero" class="font-text text-sm text-white/70 hover:text-white
+              <button data-section="section-hero" class="font-text text-sm text-white/70 hover:text-white
                        transition-colors duration-200 flex items-center gap-2 group">
                 <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
                 Home
-              </a>
+              </button>
             </li>
             <li>
-              <a href="#about" class="font-text text-sm text-white/70 hover:text-white
+              <button data-section="section-about" class="font-text text-sm text-white/70 hover:text-white
                        transition-colors duration-200 flex items-center gap-2 group">
                 <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
                 About
-              </a>
+              </button>
             </li>
             <li>
-              <a href="#services" class="font-text text-sm text-white/70 hover:text-white
+              <button data-section="section-services" class="font-text text-sm text-white/70 hover:text-white
                        transition-colors duration-200 flex items-center gap-2 group">
                 <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
                 Services
-              </a>
+              </button>
             </li>
             <li>
-              <a href="#choose-us" class="font-text text-sm text-white/70 hover:text-white
+              <button data-section="section-choose-us" class="font-text text-sm text-white/70 hover:text-white
                        transition-colors duration-200 flex items-center gap-2 group">
                 <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
                 Why Choose Us
-              </a>
+              </button>
             </li>
             <li>
-              <a href="#partners" class="font-text text-sm text-white/70 hover:text-white
+              <button data-section="section-partners" class="font-text text-sm text-white/70 hover:text-white
                        transition-colors duration-200 flex items-center gap-2 group">
                 <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
                 Partners
-              </a>
-            </li>
-            <li>
-              <a href="#contact" class="font-text text-sm text-white/70 hover:text-white
-                       transition-colors duration-200 flex items-center gap-2 group">
-                <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
-                Contact
-              </a>
+              </button>
             </li>
           </ul>
         </div>
@@ -137,36 +130,36 @@
           </p>
           <ul class="space-y-3">
             <li>
-              <a href="#services" class="font-text text-sm text-white/70 hover:text-white
-                       transition-colors duration-200 flex items-center gap-2 group">
+              <a href="#services" data-service="1" class="footer-service-link font-text text-sm text-white/70 hover:text-white
+               transition-colors duration-200 flex items-center gap-2 group">
                 <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
                 Business Process
               </a>
             </li>
             <li>
-              <a href="#services" class="font-text text-sm text-white/70 hover:text-white
-                       transition-colors duration-200 flex items-center gap-2 group">
+              <a href="#services" data-service="2" class="footer-service-link font-text text-sm text-white/70 hover:text-white
+               transition-colors duration-200 flex items-center gap-2 group">
                 <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
                 Liaison Services
               </a>
             </li>
             <li>
-              <a href="#services" class="font-text text-sm text-white/70 hover:text-white
-                       transition-colors duration-200 flex items-center gap-2 group">
+              <a href="#services" data-service="3" class="footer-service-link font-text text-sm text-white/70 hover:text-white
+               transition-colors duration-200 flex items-center gap-2 group">
                 <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
                 Project Management
               </a>
             </li>
             <li>
-              <a href="#services" class="font-text text-sm text-white/70 hover:text-white
-                       transition-colors duration-200 flex items-center gap-2 group">
+              <a href="#services" data-service="4" class="footer-service-link font-text text-sm text-white/70 hover:text-white
+               transition-colors duration-200 flex items-center gap-2 group">
                 <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
                 Change Management
               </a>
             </li>
             <li>
-              <a href="#services" class="font-text text-sm text-white/70 hover:text-white
-                       transition-colors duration-200 flex items-center gap-2 group">
+              <a href="#services" data-service="5" class="footer-service-link font-text text-sm text-white/70 hover:text-white
+               transition-colors duration-200 flex items-center gap-2 group">
                 <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
                 Training & Development
               </a>
