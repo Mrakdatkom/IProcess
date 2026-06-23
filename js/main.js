@@ -37,7 +37,7 @@ function createSmoothScroller() {
   return ScrollSmoother.create({
     wrapper: "#smooth-wrapper",
     content: "#smooth-content",
-    smooth: 0.65,
+    smooth: 1.5,
     effects: false,
   });
 }
