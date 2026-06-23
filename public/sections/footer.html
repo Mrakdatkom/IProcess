@@ -1,0 +1,242 @@
+<!-- sections/footer.html -->
+<footer id="footer" class="w-full bg-footer text-white">
+
+  <!-- ── MAIN FOOTER CONTENT ── -->
+  <div class="px-6 sm:px-10 md:px-16 lg:px-24 pt-14 md:pt-20 pb-10 md:pb-16">
+
+    <!--
+      RESPONSIVE GRID STRATEGY
+      Mobile  (<640px):  brand full-width on top, link cols in 2-col grid below
+      Tablet  (640–1023): brand left (40%), 3 link cols stacked right (60%)
+      Desktop (≥1024px): 4-col: brand | company | services | resources
+    -->
+
+    <!-- ── TOP: Brand row (always full-width on mobile) ── -->
+    <div class="flex flex-col sm:flex-row sm:items-start sm:gap-12 lg:gap-16">
+
+      <!-- BRAND BLOCK -->
+      <div class="flex-shrink-0 sm:w-[42%] lg:w-auto mb-10 sm:mb-0">
+
+        <!-- Logo + Name -->
+        <a href="#" class="flex items-center gap-3 mb-5">
+          <div class="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center flex-shrink-0">
+            <img src="/images/iprocess-logo.png" alt="IProcess logo" class="w-full h-full object-contain rounded-lg"
+              style="filter: brightness(0) invert(1);" />
+          </div>
+          <div class="flex flex-col justify-center leading-tight">
+            <span class="font-title text-2xl md:text-3xl font-bold tracking-[-0.02em] text-white">
+              IProcess PH
+            </span>
+            <span class="font-text text-xs md:text-sm font-light text-white/70 tracking-wide">
+              Simplify Business Transactions
+            </span>
+          </div>
+        </a>
+
+        <!-- Tagline -->
+        <p class="font-text text-sm text-white/60 leading-relaxed mb-6 max-w-xs">
+          Simplifying business transactions for franchisees and merchants
+          across the Philippines — one process at a time.
+        </p>
+
+        <!-- Social links -->
+        <div class="flex items-center gap-3">
+          <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-lg flex items-center justify-center
+                   bg-white/10 border border-white/15 text-white/60
+                   hover:bg-white/20 hover:text-white transition-all duration-200">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-lg flex items-center justify-center
+                   bg-white/10 border border-white/15 text-white/60
+                   hover:bg-white/20 hover:text-white transition-all duration-200">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-lg flex items-center justify-center
+                   bg-white/10 border border-white/15 text-white/60
+                   hover:bg-white/20 hover:text-white transition-all duration-200">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- LINK COLUMNS WRAPPER -->
+      <!--
+        Mobile:  2-col grid (Company | Services), Resources below full-width
+        Tablet:  3-col row filling remaining 58% beside brand
+        Desktop: continue as 3-col row (parent already flex-row)
+      -->
+      <div class="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-10">
+
+        <!-- COL: Company -->
+        <div>
+          <p class="font-text text-xs tracking-[0.22em] uppercase text-white/40 mb-5">
+            Company
+          </p>
+          <ul class="space-y-3">
+            <li>
+              <a href="#hero" class="font-text text-sm text-white/70 hover:text-white
+                       transition-colors duration-200 flex items-center gap-2 group">
+                <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#about" class="font-text text-sm text-white/70 hover:text-white
+                       transition-colors duration-200 flex items-center gap-2 group">
+                <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#services" class="font-text text-sm text-white/70 hover:text-white
+                       transition-colors duration-200 flex items-center gap-2 group">
+                <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
+                Services
+              </a>
+            </li>
+            <li>
+              <a href="#choose-us" class="font-text text-sm text-white/70 hover:text-white
+                       transition-colors duration-200 flex items-center gap-2 group">
+                <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
+                Why Choose Us
+              </a>
+            </li>
+            <li>
+              <a href="#partners" class="font-text text-sm text-white/70 hover:text-white
+                       transition-colors duration-200 flex items-center gap-2 group">
+                <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
+                Partners
+              </a>
+            </li>
+            <li>
+              <a href="#contact" class="font-text text-sm text-white/70 hover:text-white
+                       transition-colors duration-200 flex items-center gap-2 group">
+                <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COL: Services -->
+        <div>
+          <p class="font-text text-xs tracking-[0.22em] uppercase text-white/40 mb-5">
+            Services
+          </p>
+          <ul class="space-y-3">
+            <li>
+              <a href="#services" class="font-text text-sm text-white/70 hover:text-white
+                       transition-colors duration-200 flex items-center gap-2 group">
+                <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
+                Business Process
+              </a>
+            </li>
+            <li>
+              <a href="#services" class="font-text text-sm text-white/70 hover:text-white
+                       transition-colors duration-200 flex items-center gap-2 group">
+                <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
+                Liaison Services
+              </a>
+            </li>
+            <li>
+              <a href="#services" class="font-text text-sm text-white/70 hover:text-white
+                       transition-colors duration-200 flex items-center gap-2 group">
+                <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
+                Project Management
+              </a>
+            </li>
+            <li>
+              <a href="#services" class="font-text text-sm text-white/70 hover:text-white
+                       transition-colors duration-200 flex items-center gap-2 group">
+                <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
+                Change Management
+              </a>
+            </li>
+            <li>
+              <a href="#services" class="font-text text-sm text-white/70 hover:text-white
+                       transition-colors duration-200 flex items-center gap-2 group">
+                <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
+                Training & Development
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COL: Resources
+             Mobile: spans both columns (col-span-2) so it sits below the 2-col pair
+             Tablet+: normal single column in the 3-col row -->
+        <div class="col-span-2 sm:col-span-1">
+          <p class="font-text text-xs tracking-[0.22em] uppercase text-white/40 mb-5">
+            Resources
+          </p>
+          <ul class="space-y-3">
+            <li>
+              <a href="#" class="font-text text-sm text-white/70 hover:text-white
+                       transition-colors duration-200 flex items-center gap-2 group">
+                <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
+                Franchise
+              </a>
+            </li>
+            <li>
+              <a href="#" class="font-text text-sm text-white/70 hover:text-white
+                       transition-colors duration-200 flex items-center gap-2 group">
+                <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
+                Merchant
+              </a>
+            </li>
+            <li>
+              <a href="#" class="font-text text-sm text-white/70 hover:text-white
+                       transition-colors duration-200 flex items-center gap-2 group">
+                <span class="w-0 h-px bg-white/50 group-hover:w-3 transition-all duration-300"></span>
+                Company Documents
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div><!-- /link columns wrapper -->
+
+    </div><!-- /top row -->
+
+  </div><!-- /main content -->
+
+  <!-- ── BOTTOM BAR ── -->
+  <div class="border-t border-white/10 px-6 sm:px-10 md:px-16 lg:px-24 py-8">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+
+      <p class="font-text text-sm text-white/50 text-center sm:text-left tracking-wider">
+        © 2026 <span id="footer-year"></span> IProcess Philippines. All rights reserved.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+        <a href="#" class="font-text text-xs text-white/50 hover:text-white transition-colors duration-200">
+          Privacy Policy
+        </a>
+        <a href="#" class="font-text text-xs text-white/50 hover:text-white transition-colors duration-200">
+          Terms of Service
+        </a>
+        <a href="#" class="font-text text-xs text-white/50 hover:text-white transition-colors duration-200">
+          Cookie Policy
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</footer>
+
+<script>
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>

@@ -9,7 +9,11 @@
   /* 30% – White/Off-white */
   --color-accent: #4a5568;
   /* 10% – Slate Gray */
+
+  --color-footer: #1D4079;
 }
+
+/* #1D4079 */
 
 /* Custom font utility classes – already imported in index.html */
 .font-title {
