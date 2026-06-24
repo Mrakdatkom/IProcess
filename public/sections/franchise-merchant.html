@@ -1,0 +1,289 @@
+<!-- sections/franchise-merchant.html -->
+<section id="franchise-merchant" class="relative w-full overflow-hidden bg-white">
+
+  <!--
+    DESKTOP: Two panels side-by-side via flexbox (no absolute positioning).
+    LEFT  — solid dark (#060c1a), content left-padded from viewport edge to center.
+    RIGHT — solid white (#ffffff), content right-padded from center to viewport edge.
+    MOBILE: stacks vertically.
+  -->
+
+  <div class="flex flex-col lg:flex-row" style="min-height: 120svh;">
+
+    <!-- ═══════════════════════════════════════════
+         LEFT PANEL — FRANCHISE  (solid dark)
+    ════════════════════════════════════════════ -->
+    <div id="fm-franchise" class="relative w-full lg:w-1/2 flex items-center
+             py-20 px-6 sm:px-12 md:px-16 franchise-merchant-bg">
+
+      <!--
+        Content wrapper:
+        On desktop: push content toward the divider (right side of panel)
+        by capping width and using auto left margin + fixed right padding.
+        max-w-lg keeps lines readable; ml-auto pushes it rightward.
+      -->
+      <div class="fm-franchise-content relative z-10 w-full max-w-lg lg:ml-auto lg:mr-0 lg:pr-16 xl:pr-20">
+
+        <!-- Heading -->
+        <h2 id="fm-franchise-heading"
+          class="font-text text-4xl md:text-5xl xl:text-6xl text-white leading-tight mb-5 opacity-0"
+          style="letter-spacing: -0.02em;">
+          Own an <span class="font-title">iProcess</span> <br>
+          Business Center
+        </h2>
+
+        <!-- Description -->
+        <p id="fm-franchise-desc" class="font-text text-sm md:text-base text-white/60 leading-relaxed mb-8 opacity-0">
+          Join a proven franchise network delivering financial services and
+          convenience to communities across the Philippines.
+        </p>
+
+        <!-- 4 key benefits with equal spacing -->
+        <ul class="space-y-4 mb-10">
+          <li class="fm-benefit-item flex items-start gap-3 opacity-0">
+            <div class="fm-check-icon w-5 h-5 rounded-full border border-white
+                flex items-center justify-center flex-shrink-0 mt-1 relative overflow-hidden">
+              <div class="fm-check-shimmer absolute inset-0 rounded-full" style="background: linear-gradient(90deg, transparent 0%, rgba(4,107,210,0.4) 50%, transparent 100%);
+               transform: translateX(-100%);"></div>
+              <svg class="relative z-10" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M2 5l2 2 4-4" stroke="#f8f9fa" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+            <span class="font-text text-sm text-white/75 leading-snug">Multiple revenue streams — bills, remittance,
+              ticketing &amp;
+              more</span>
+          </li>
+          <li class="fm-benefit-item flex items-start gap-3 opacity-0">
+            <div class="fm-check-icon w-5 h-5 rounded-full border border-white
+                flex items-center justify-center flex-shrink-0 mt-1 relative overflow-hidden">
+              <div class="fm-check-shimmer absolute inset-0 rounded-full" style="background: linear-gradient(90deg, transparent 0%, rgba(4,107,210,0.4) 50%, transparent 100%);
+               transform: translateX(-100%);"></div>
+              <svg class="relative z-10" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M2 5l2 2 4-4" stroke="#f8f9fa" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+            <span class="font-text text-sm text-white/75 leading-snug">Comprehensive training &amp; ongoing operational
+              support</span>
+          </li>
+          <li class="fm-benefit-item flex items-start gap-3 opacity-0">
+            <div class="fm-check-icon w-5 h-5 rounded-full border border-white
+                flex items-center justify-center flex-shrink-0 mt-1 relative overflow-hidden">
+              <div class="fm-check-shimmer absolute inset-0 rounded-full" style="background: linear-gradient(90deg, transparent 0%, rgba(4,107,210,0.4) 50%, transparent 100%);
+               transform: translateX(-100%);"></div>
+              <svg class="relative z-10" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M2 5l2 2 4-4" stroke="#f8f9fa" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+            <span class="font-text text-sm text-white/75 leading-snug">Trusted brand with lifetime franchise
+              validity</span>
+          </li>
+          <li class="fm-benefit-item flex items-start gap-3 opacity-0">
+            <div class="fm-check-icon w-5 h-5 rounded-full border border-white
+                flex items-center justify-center flex-shrink-0 mt-1 relative overflow-hidden">
+              <div class="fm-check-shimmer absolute inset-0 rounded-full" style="background: linear-gradient(90deg, transparent 0%, rgba(4,107,210,0.4) 50%, transparent 100%);
+               transform: translateX(-100%);"></div>
+              <svg class="relative z-10" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M2 5l2 2 4-4" stroke="#f8f9fa" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+            <span class="font-text text-sm text-white/75 leading-snug">Marketing assistance &amp; community
+              impact</span>
+          </li>
+        </ul>
+
+        <!-- CTAs -->
+        <div id="fm-franchise-ctas" class="flex flex-wrap gap-3 opacity-0">
+          <a href="/franchise" id="fm-apply-btn" class="inline-flex items-center gap-2 px-6 py-2 text-sm font-bold
+                 text-white font-text transition-all duration-300
+                 bg-white/10 backdrop-blur-sm border border-white/20
+                 hover:bg-white/20 hover:border-white/35 hover:shadow-lg">
+            Apply Now
+            <svg id="fm-apply-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M12 7l-4-4M12 7l-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── VERTICAL DIVIDER + PILL (desktop only, sits between the two flex children) ── -->
+    <div class="hidden lg:flex flex-col items-center relative z-20 flex-shrink-0" style="width: 1px;">
+      <!-- Line -->
+      <div id="fm-divider" class="w-px flex-1"
+        style="height: 0%; background: linear-gradient(to bottom, transparent, rgba(100,120,150,0.25), transparent);">
+      </div>
+      <!-- Pill -->
+      <div id="fm-divider-pill"
+        class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 flex items-center justify-center w-10 h-10"
+        style="opacity: 0;">
+        <!-- Ping rings -->
+        <div id="fm-ping-1" class="absolute w-10 h-10 rounded-full border border-primary/30" style="opacity:0.6;"></div>
+        <div id="fm-ping-2" class="absolute w-10 h-10 rounded-full border border-primary/20" style="opacity:0.4;"></div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         RIGHT PANEL — MERCHANT  (solid white)
+    ════════════════════════════════════════════ -->
+    <div id="fm-merchant" class="relative w-full lg:w-1/2 flex items-center
+             py-20 px-6 sm:px-12 md:px-16" style="background: #ffffff;">
+
+      <!--
+        Mirror of the left: content hugs the divider (left side of panel)
+        by using mr-auto + fixed left padding.
+      -->
+      <div class="fm-merchant-content relative z-10 w-full max-w-lg lg:mr-auto lg:ml-0 lg:pl-4 xl:pl-8">
+
+
+        <!-- Heading -->
+        <h2 id="fm-merchant-heading"
+          class="font-text text-4xl md:text-5xl xl:text-6xl text-black leading-tight mb-4 opacity-0"
+          style="letter-spacing: -0.02em;">
+          Your <span class="font-title">Merchant</span><br>
+          Portal
+        </h2>
+
+        <!-- Description -->
+        <p id="fm-merchant-desc" class="font-text text-sm md:text-base text-accent leading-relaxed mb-8 opacity-0">
+          Your centralized hub for operational tools, payment systems,
+          and partner platforms — all in one place.
+        </p>
+
+        <!-- Portal grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
+
+          <a href="https://iprocess-pos.com/" target="_blank" rel="noopener" class="merchant-portal-card group flex items-center gap-3 px-4 py-3.5 rounded-xl
+           bg-white border border-black opacity-0 min-h-[52px]">
+            <div class="fm-portal-icon w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0
+                group-hover:scale-110 transition-transform duration-200">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="5" width="20" height="14" rx="2" />
+                <line x1="2" y1="10" x2="22" y2="10" />
+              </svg>
+            </div>
+            <span class="font-text text-xs font-semibold text-black">
+              Payment Portal
+            </span>
+          </a>
+
+          <a href="https://merchant.paycools.com.ph/" target="_blank" rel="noopener" class="merchant-portal-card group flex items-center gap-3 px-4 py-3.5 rounded-xl
+           bg-white border border-black opacity-0 min-h-[52px]">
+            <div class="fm-portal-icon w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0
+                group-hover:scale-110 transition-transform duration-200">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+              </svg>
+            </div>
+            <span class="font-text text-xs font-semibold text-black">
+              QRPh
+            </span>
+          </a>
+
+          <a href="https://vip.jtexpress.ph/" target="_blank" rel="noopener" class="merchant-portal-card group flex items-center gap-3 px-4 py-3.5 rounded-xl
+           bg-white border border-black opacity-0 min-h-[52px]">
+            <div class="fm-portal-icon w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0
+                group-hover:scale-110 transition-transform duration-200">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3" />
+                <rect x="9" y="11" width="14" height="10" rx="2" />
+                <circle cx="12" cy="16" r="1" />
+                <circle cx="20" cy="16" r="1" />
+              </svg>
+            </div>
+            <span class="font-text text-xs font-semibold text-black">
+              Logistics
+            </span>
+          </a>
+
+          <a href="https://sso.zetaapps.in/?redirectUrl=https://digital.sodexo.ph/dashboard&countryCode=63&ifi=285134"
+            target="_blank" rel="noopener" class="merchant-portal-card group flex items-center gap-3 px-4 py-3.5 rounded-xl
+           bg-white border border-black opacity-0 min-h-[52px]">
+            <div class="fm-portal-icon w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0
+                group-hover:scale-110 transition-transform duration-200">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+            </div>
+            <span class="font-text text-xs font-semibold text-black">
+              Sodexo / Pluxee
+            </span>
+          </a>
+
+          <a href="https://www.ebiyahe.com/" target="_blank" rel="noopener" class="merchant-portal-card group flex items-center gap-3 px-4 py-3.5 rounded-xl
+           bg-white border border-black opacity-0 min-h-[52px]">
+            <div class="fm-portal-icon w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0
+                group-hover:scale-110 transition-transform duration-200">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.08 5.18 2 2 0 0 1 5.07 3h3a2 2 0 0 1 2 1.72 12.8 12.8 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L9.4 10.5a16 16 0 0 0 6.1 6.1l.95-.95a2 2 0 0 1 2.11-.45 12.8 12.8 0 0 0 2.81.7A2 2 0 0 1 23 18z" />
+              </svg>
+            </div>
+            <span class="font-text text-xs font-semibold text-black">
+              Travel &amp; Tours
+            </span>
+          </a>
+
+          <!-- Concerns shortcut -->
+          <a href="/merchant" class="merchant-portal-card group flex items-center gap-3 px-4 py-3.5 rounded-xl
+           bg-white border border-black opacity-0 min-h-[52px]">
+            <div class="fm-portal-icon w-8 h-8 rounded-lg bg-slate-200 flex items-center justify-center flex-shrink-0
+                group-hover:scale-110 transition-transform duration-200">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4M12 16h.01" />
+              </svg>
+            </div>
+            <span class="font-text text-xs font-semibold text-black">Merchant Concerns</span>
+          </a>
+        </div>
+
+        <!-- CTA -->
+        <a href="/franchise" id="fm-apply-btn" class="inline-flex items-center gap-2 px-6 py-2 text-sm font-bold
+                 text-white font-text transition-all duration-300
+                 bg-black backdrop-blur-sm border border-white/20
+                 hover:bg-dark/20 hover:border-white/35 hover:shadow-lg">
+          Learn More
+          <svg id="fm-apply-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7h10M12 7l-4-4M12 7l-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- end flex row -->
+
+</section>
+
+<!-- ── STYLES ── -->
+<style>
+  /* Arrow nudge — Apply Now */
+  #fm-apply-btn:hover #fm-apply-arrow {
+    transform: translateX(3px);
+  }
+
+  /* Arrow nudge — Portal CTA */
+  #fm-portal-btn:hover svg {
+    transform: translateX(3px);
+  }
+
+  #fm-apply-arrow,
+  #fm-portal-btn svg {
+    transition: transform 0.22s ease;
+  }
+</style>

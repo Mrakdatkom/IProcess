@@ -22,6 +22,10 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.franchise-merchant-bg {
+  background: #000;
+}
+
 /* #1D4079 */
 
 /* Custom font utility classes – already imported in index.html */

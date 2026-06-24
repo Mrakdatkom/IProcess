@@ -10,6 +10,7 @@ import { animateChooseUs } from "./animations/choose-us.js";
 import { animatePartners } from "./animations/partners.js";
 import { animateServices } from "./animations/services.js";
 import { animateFooter } from "./animations/footer.js";
+import { animateFranchiseMerchant } from "./animations/franchise-merchant.js";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -127,6 +128,7 @@ async function init() {
     ["/sections/choose-us.html", "section-choose-us", animateChooseUs],
     ["/sections/services.html", "section-services", animateServices],
     ["/sections/footer.html", "section-footer", animateFooter],
+    ["/sections/franchise-merchant.html", "section-franchise-merchant", animateFranchiseMerchant],
   ];
 
   for (const [path, targetId, animate] of remainingSections) {
