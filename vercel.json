@@ -5,11 +5,11 @@
   "rewrites": [
     {
       "source": "/franchise/",
-      "destination": "/franchise.html"
+      "destination": "/franchise/index.html"
     },
     {
-      "source": "/merchant-page/",
-      "destination": "/merchant-page.html"
+      "source": "/merchant/",
+      "destination": "/merchant/index.html"
     },
     {
       "source": "/(.*)",
