@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:ital,wght@1,600&display=swap"
     rel="stylesheet">
 
-  <link rel="shortcut icon" href="images/iprocess-logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../public/images/iprocess-logo.png" type="image/x-icon">
 </head>
 
 <body>
@@ -1391,8 +1391,15 @@
     document.getElementById('footer-year').textContent = new Date().getFullYear();
   </script>
   <script type="module">
-    import { initConsentBanner } from '/js/consent-banner.js';
-    initConsentBanner();
+    // Wrapped in try/catch: if an ad blocker blocks privacy-notice.js,
+    // the page still loads normally instead of going white.
+    try {
+      const { initPrivacyNotice } = await import('/js/privacy-notice.js');
+      initPrivacyNotice();
+    } catch (e) {
+      // Privacy notice blocked by browser extension — safe to ignore.
+      console.info('Privacy notice script unavailable.');
+    }
   </script>
 </body>
 

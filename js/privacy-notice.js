@@ -1,7 +1,13 @@
 /**
- * js/consent-banner.js
+ * js/privacy-notice.js
  *
- * Controls the site-wide data privacy consent banner.
+ * Controls the site-wide data privacy notice banner.
+ *
+ * NOTE ON NAMING: This file is intentionally named 'privacy-notice.js'
+ * rather than 'consent-banner.js'. Ad blockers (uBlock Origin, Brave Shields,
+ * Privacy Badger, etc.) match filenames containing 'consent' + 'banner'
+ * and block them automatically, which causes the entire page to go white
+ * if the module is part of the main JS bundle.
  *
  * BEHAVIOUR:
  *   - On first visit: banner slides up from the bottom after a short delay.
@@ -11,11 +17,11 @@
  *   - On any subsequent visit: banner never appears again (choice already stored).
  *
  * USAGE:
- *   Import and call initConsentBanner() from your main.js,
+ *   Import and call initPrivacyNotice() from your main.js,
  *   or add a <script type="module"> tag on each page that includes the banner.
  *
- *   import { initConsentBanner } from '/js/consent-banner.js';
- *   initConsentBanner();
+ *   import { initPrivacyNotice } from '/js/privacy-notice.js';
+ *   initPrivacyNotice();
  *
  * RE-SHOWING THE BANNER (for testing):
  *   Run in browser console: localStorage.removeItem('iprocess_consent');
@@ -25,7 +31,7 @@
 const STORAGE_KEY = 'iprocess_consent';
 const SHOW_DELAY_MS = 800; // slight delay so banner doesn't pop immediately on load
 
-export function initConsentBanner() {
+export function initPrivacyNotice() {
   // Already decided — don't show again
   if (localStorage.getItem(STORAGE_KEY)) return;
 
