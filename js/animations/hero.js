@@ -3,13 +3,12 @@
  *
  * ENTRANCE:
  *   BG fades in → top rule draws → words rise one by one →
- *   bottom rule draws → FG slides in (depth reveal) → nav + CTA fade in
+ *   bottom rule draws → FG slides in (depth reveal)
  *
  * SCROLL (ScrollTrigger scrub):
  *   - Headline: scale up + fade out
  *   - FG: parallax down (faster)
  *   - BG: parallax up (slower)
- *   - CTA: fades early
  *
  * MOBILE DRAWER:
  *   - Slides in from right (translateX: 100% → 0)
@@ -30,7 +29,6 @@ export function animateHero() {
     gsap.set([
       '#hero-bg', '#hero-fg', '#hero-word-1', '#hero-word-2',
       '#hero-word-3-row', '#hero-est', '#hero-rule-top', '#hero-rule-bottom',
-      '#hero-nav', '#hero-logo', '.nav-link', '#hero-nav-cta', '#hero-cta',
     ], { clearProps: 'all' });
     initDrawer();
     return;
@@ -45,8 +43,6 @@ export function animateHero() {
   gsap.set('#hero-est', { opacity: 0 });
   gsap.set('#hero-rule-top', { width: 0 });
   gsap.set('#hero-rule-bottom', { width: 0 });
-  gsap.set('#hero-nav', { y: -28, opacity: 0 });
-  gsap.set('#hero-cta', { y: 18, opacity: 0 });
 
   // ── Entrance timeline ─────────────────────────────────────────────────────
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
@@ -78,19 +74,7 @@ export function animateHero() {
     }, '-=0.35')
 
     // FG slides in — depth reveal
-    .to('#hero-fg', { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' }, '-=0.45')
-
-    // Nav drops in
-    .to('#hero-nav', { y: 0, opacity: 1, duration: 0.55, ease: 'power3.out' }, '-=0.7')
-
-    // CTA rises
-    .to('#hero-cta', { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' }, '-=0.3');
-
-  // Nav links stagger within nav reveal
-  tl.from('.nav-link', {
-    y: -8, opacity: 0, stagger: 0.065,
-    duration: 0.35, ease: 'power2.out', clearProps: 'transform',
-  }, '-=0.45');
+    .to('#hero-fg', { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' }, '-=0.45');
 
   // ── SCROLL ANIMATIONS ─────────────────────────────────────────────────────
   const heroEl = document.getElementById('hero');
@@ -116,14 +100,6 @@ export function animateHero() {
     y: -40, ease: 'none',
     scrollTrigger: {
       trigger: heroEl, start: 'top top', end: 'bottom top', scrub: 2,
-    },
-  });
-
-  // CTA fades out early
-  gsap.to('#hero-cta', {
-    opacity: 0, y: 14, ease: 'none',
-    scrollTrigger: {
-      trigger: heroEl, start: 'top top', end: '28% top', scrub: 1,
     },
   });
 
