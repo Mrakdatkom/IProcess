@@ -12,6 +12,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         franchise: resolve(__dirname, 'franchise/index.html'),
         merchant: resolve(__dirname, 'merchant/index.html'),
+        privacy: resolve(__dirname, 'privacy.html'),
       }
     }
   },
