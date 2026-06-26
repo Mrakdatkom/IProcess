@@ -2,6 +2,10 @@
 import gsap from "../../public/vendor/gsap/index.js";
 
 export function animateProof() {
+  document.querySelectorAll('.carousel-item-inner img').forEach(img => {
+    img.addEventListener('load', () => img.setAttribute('loaded', ''));
+  });
+
   const items = gsap.utils.toArray(".carousel-item");
   if (!items.length) return;
 

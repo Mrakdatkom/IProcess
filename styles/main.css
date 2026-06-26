@@ -107,3 +107,16 @@ body {
   scrollbar-width: none;
   /* Firefox */
 }
+
+.carousel-item-inner img {
+  background: #f0f0f0;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-item-inner img:not([loaded]) {
+  opacity: 0;
+}
+
+.carousel-item-inner img[loaded] {
+  opacity: 1;
+}
