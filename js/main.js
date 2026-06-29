@@ -12,6 +12,7 @@ import { animatePartners } from "./animations/partners.js";
 import { animateFooter } from "./animations/footer.js";
 import { animateFranchiseMerchant } from "./animations/franchise-merchant.js";
 import { animateProof } from "./animations/proof.js";
+import { animateMap } from "./animations/map.js";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -129,6 +130,7 @@ async function init() {
       ["/sections/choose-us.html", "section-choose-us", animateChooseUs],
       ["/sections/services.html", "section-services", animateServices],
       ["/sections/proof.html", "section-proof", animateProof],
+      ["/sections/map.html", "section-map", animateMap],
       ["/sections/footer.html", "section-footer", animateFooter],
       ["/sections/franchise-merchant.html", "section-franchise-merchant", animateFranchiseMerchant],
     ];
