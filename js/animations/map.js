@@ -50,10 +50,10 @@ export function animateMap() {
           <!-- Pin body -->
           <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M22 44C22 44 38 28 38 16C38 7.16344 30.8366 0 22 0C13.1634 0 6 7.16344 6 16C6 28 22 44 22 44Z" 
-                  fill="red" stroke="white" stroke-width="2"/>
+                  fill="url(#mainGradient)" stroke="white" stroke-width="2"/>
             <circle cx="22" cy="16" r="5" fill="white" opacity="0.9"/>
             <text x="22" y="19.5" font-family="Arial" font-size="10" font-weight="700" 
-                  fill="red" text-anchor="middle">★</text>
+                  fill="#046bd2" text-anchor="middle">★</text>
             <defs>
               <linearGradient id="mainGradient" x1="6" y1="0" x2="38" y2="44">
                 <stop offset="0%" stop-color="#046bd2"/>
@@ -69,7 +69,7 @@ export function animateMap() {
             width: 52px;
             height: 52px;
             border-radius: 50%;
-            background: red;
+            background: rgba(4,107,210,0.15);
             animation: pulse-glow 2s ease-in-out infinite;
             pointer-events: none;
           "></div>
@@ -117,6 +117,60 @@ export function animateMap() {
       const marker = L.marker([branch.lat, branch.lng], { icon }).addTo(map);
 
       // ─── GLASS MORPHISM POPUP ──────────────────────────────────────────
+      
+      // Build details section conditionally
+      let detailsHTML = '';
+      
+      if (isMain) {
+        // Main branch: show all details
+        detailsHTML = `
+          <div style="
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-top: 4px;
+          ">
+            <p style="
+              margin: 0;
+              font-size: 0.82em;
+              color: #4a5568;
+              line-height: 1.4;
+              display: flex;
+              align-items: flex-start;
+              gap: 6px;
+            ">
+              <span style="flex-shrink: 0;">📍</span>
+              <span>${branch.address}</span>
+            </p>
+            <p style="
+              margin: 0;
+              font-size: 0.82em;
+              color: #4a5568;
+              display: flex;
+              align-items: center;
+              gap: 6px;
+            ">
+              <span>📞</span>
+              <span>${branch.phone}</span>
+            </p>
+            <p style="
+              margin: 0;
+              font-size: 0.82em;
+              color: #4a5568;
+              display: flex;
+              align-items: center;
+              gap: 6px;
+            ">
+              <span>✉️</span>
+              <span>${branch.email}</span>
+            </p>
+          </div>
+        `;
+      } else {
+        // Regular branch: show "iProcess" name only (no details)
+        detailsHTML = '';
+      }
+
       const popupContent = `
         <div style="
           font-family: 'Lato', sans-serif;
@@ -174,55 +228,15 @@ export function animateMap() {
 
             <!-- Branch Name -->
             <h3 style="
-              margin: 4px 0 6px 0;
+              margin: 4px 0 ${isMain ? '6px' : '0'} 0;
               font-size: 1.1em;
               font-weight: 700;
               color: #1a1a2e;
               letter-spacing: -0.02em;
             ">${branch.name}</h3>
 
-            <!-- Details -->
-            <div style="
-              display: flex;
-              flex-direction: column;
-              gap: 4px;
-              margin-top: 4px;
-            ">
-              <p style="
-                margin: 0;
-                font-size: 0.82em;
-                color: #4a5568;
-                line-height: 1.4;
-                display: flex;
-                align-items: flex-start;
-                gap: 6px;
-              ">
-                <span style="flex-shrink: 0;">📍</span>
-                <span>${branch.address}</span>
-              </p>
-              <p style="
-                margin: 0;
-                font-size: 0.82em;
-                color: #4a5568;
-                display: flex;
-                align-items: center;
-                gap: 6px;
-              ">
-                <span>📞</span>
-                <span>${branch.phone}</span>
-              </p>
-              <p style="
-                margin: 0;
-                font-size: 0.82em;
-                color: #4a5568;
-                display: flex;
-                align-items: center;
-                gap: 6px;
-              ">
-                <span>✉️</span>
-                <span>${branch.email}</span>
-              </p>
-            </div>
+            <!-- Details (only for main branch) -->
+            ${detailsHTML}
           </div>
         </div>
       `;
