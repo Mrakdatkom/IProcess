@@ -300,6 +300,18 @@ const branchLocations = [
     lat: 10.79932458948734,
     lng: 123.17318126369284,
   },
+  {
+    type: 'branch',
+    name: "iProcess Quezon City",
+    lat: 14.678957168288262,
+    lng: 121.0348471238015,
+  },
+  {
+    type: 'branch',
+    name: "iProcess Davao",
+    lat: 7.029935384903201,
+    lng: 125.48474146434984,
+  },
 ];
 
 export default branchLocations;
