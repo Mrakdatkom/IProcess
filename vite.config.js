@@ -15,6 +15,7 @@ export default defineConfig({
         privacy: resolve(__dirname, 'privacy.html'),
         privacy: resolve(__dirname, 'terms.html'),
         privacy: resolve(__dirname, 'cookies.html'),
+        privacy: resolve(__dirname, 'bdo/index.html'),
       }
     }
   },

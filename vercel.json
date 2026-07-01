@@ -24,6 +24,10 @@
       "destination": "/cookies.html"
     },
     {
+      "source": "/bdo",
+      "destination": "/bdo/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

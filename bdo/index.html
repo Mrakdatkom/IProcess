@@ -1,0 +1,590 @@
+<!-- bdo/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Development Officer - iProcess PH</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="/styles/main.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+            body: ['Inter', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: currentColor;
+      transition: width .3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-slate-900 font-sans antialiased">
+
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <section id="bdo">
+        <!-- HERO -->
+        <section id="hero-section" class="relative overflow-hidden">
+          <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-8 pb-12 lg:pt-12 lg:pb-20">
+            <nav class="flex items-center justify-between mb-4">
+              <a href="/"
+                class="group inline-flex items-center gap-2 font-text text-xs tracking-[0.25em] uppercase text-black/40 hover:text-black transition-all duration-300 mb-6">
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                <span
+                  class="relative after:block after:h-px after:bg-black/20 after:scale-x-0 after:transition-transform after:duration-300 group-hover:after:scale-x-100"
+                  style="transform-origin: left;">
+                  Back
+                </span>
+              </a>
+              <div class="w-20 h-20">
+                <img src="/public/images/iprocess-logo.png" alt="iProcess logo">
+              </div>
+            </nav>
+
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+              <div class="lg:col-span-7 reveal">
+                <div
+                  class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-[13px] font-medium mb-6">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  Career Opportunity
+                </div>
+                <h1
+                  class="font-display font-extrabold text-black text-[44px] sm:text-[56px] lg:text-[72px] leading-[1.02] tracking-tight">
+                  <span class="font-title">B</span>usiness
+                  <br /><span class="font-title">D</span>evelopment
+                  <br /><span class="font-title">O</span>fficer
+                </h1>
+                <p class="mt-8 text-slate-700 text-[17px] sm:text-[19px] leading-relaxed max-w-xl font-body">
+                  Become a champion of financial inclusion. As an iPROCESS BDO, you are not just a salesperson — you are
+                  a
+                  bridge between innovation and opportunity, empowering Filipinos one merchant at a time.
+                </p>
+
+                <!-- Primary CTA -->
+                <div class="mt-10 flex flex-wrap items-center gap-6">
+                  <a href="#apply"
+                    class="group inline-flex items-center gap-3 bg-black text-white font-semibold text-[15px] px-7 py-4 rounded-full hover:bg-slate-800 transition-all duration-300 shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-black/20">
+                    Apply Now
+                    <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </a>
+                  <div class="flex items-center gap-2 text-slate-500 text-[13px]">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>5-minute application</span>
+                  </div>
+                </div>
+
+                <!-- Section navigation -->
+                <div class="mt-12 pt-8 border-t border-slate-200">
+                  <div class="flex flex-wrap items-center gap-x-8 gap-y-3">
+                    <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">Explore</span>
+                    <div class="h-4 w-px bg-slate-200"></div>
+                    <a href="#role"
+                      class="nav-link group inline-flex items-center gap-2 text-[14px] font-medium text-slate-700 hover:text-black transition-colors">
+                      <span class="text-slate-400 group-hover:text-black transition-colors">—</span>
+                      <span>The Role</span>
+                    </a>
+                    <a href="#values"
+                      class="nav-link group inline-flex items-center gap-2 text-[14px] font-medium text-slate-700 hover:text-black transition-colors">
+                      <span class="text-slate-400 group-hover:text-black transition-colors">—</span>
+                      <span>Core Values</span>
+                    </a>
+                    <a href="#resources"
+                      class="nav-link group inline-flex items-center gap-2 text-[14px] font-medium text-slate-700 hover:text-black transition-colors">
+                      <span class="text-slate-400 group-hover:text-black transition-colors">—</span>
+                      <span>Resources</span>
+                    </a>
+                    <a href="#resources"
+                      class="nav-link group inline-flex items-center gap-2 text-[14px] font-medium text-slate-700 hover:text-black transition-colors">
+                      <span class="text-slate-400 group-hover:text-black transition-colors">—</span>
+                      <span>Concerns</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right column: visual accent card -->
+              <div class="lg:col-span-5 reveal my-auto">
+                <div class="relative">
+                  <!-- Decorative background shape -->
+                  <div
+                    class="absolute -inset-4 bg-gradient-to-br from-slate-100 via-slate-50 to-transparent rounded-3xl -z-10 blur-2xl opacity-70">
+                  </div>
+
+                  <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
+                    <div class="flex items-center gap-3 mb-6">
+                      <div>
+                        <div class="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">Why Join</div>
+                        <div class="text-[15px] font-bold text-black">The iPROCESS Mission</div>
+                      </div>
+                    </div>
+
+                    <div class="space-y-4">
+                      <div class="flex items-start gap-3">
+                        <div class="mt-1 w-6 h-6 rounded-full bg-emerald-50 flex items-center justify-center shrink-0">
+                          <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div class="text-[14px] font-semibold text-black">Financial Inclusion</div>
+                          <div class="text-[13px] text-slate-600 leading-relaxed">Bring banking to underserved
+                            communities
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="flex items-start gap-3">
+                        <div class="mt-1 w-6 h-6 rounded-full bg-emerald-50 flex items-center justify-center shrink-0">
+                          <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div class="text-[14px] font-semibold text-black">Real Impact</div>
+                          <div class="text-[13px] text-slate-600 leading-relaxed">Empower merchants & grow their income
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="flex items-start gap-3">
+                        <div class="mt-1 w-6 h-6 rounded-full bg-emerald-50 flex items-center justify-center shrink-0">
+                          <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div class="text-[14px] font-semibold text-black">Nationwide Reach</div>
+                          <div class="text-[13px] text-slate-600 leading-relaxed">Join a growing team across the
+                            Philippines
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-6 pt-6 border-t border-slate-100 flex items-center justify-between">
+                      <div class="flex -space-x-2">
+                        <div
+                          class="w-8 h-8 rounded-full bg-gradient-to-br from-slate-300 to-slate-400 border-2 border-white">
+                        </div>
+                        <div
+                          class="w-8 h-8 rounded-full bg-gradient-to-br from-slate-400 to-slate-500 border-2 border-white">
+                        </div>
+                        <div
+                          class="w-8 h-8 rounded-full bg-gradient-to-br from-slate-500 to-slate-600 border-2 border-white">
+                        </div>
+                      </div>
+                      <div class="text-[12px] text-slate-500">
+                        <span class="font-semibold text-black">500+</span> BDOs nationwide
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- THE ROLE -->
+        <section id="role" class="border-slate-200">
+          <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+            <div class="grid lg:grid-cols-12 gap-10">
+              <div class="lg:col-span-4 reveal">
+                <div class="text-slate-500 text-[13px] font-semibold uppercase tracking-widest mb-4">— The Role</div>
+                <h2 class="font-display font-bold text-black text-[32px] sm:text-[40px] leading-tight">
+                  <span class="font-title">Why</span>
+                  the
+                  <span class="font-title">BDO <br> Matters</span>
+                </h2>
+              </div>
+
+              <div class="lg:col-span-8 grid sm:grid-cols-3 gap-8">
+                <div class="reveal">
+                  <div class="text-slate-400 text-[12px] font-semibold uppercase tracking-widest mb-3">Mission</div>
+                  <h3 class="font-display font-bold text-black text-[20px] mb-3">Bridge the Gap</h3>
+                  <p class="text-slate-700 text-[15px] leading-relaxed">Actively onboard underserved communities into
+                    trusted
+                    digital and banking platforms — bringing financial access to small businesses, individuals, and
+                    remote
+                    areas.</p>
+                </div>
+                <div class="reveal">
+                  <div class="text-slate-400 text-[12px] font-semibold uppercase tracking-widest mb-3">Vision</div>
+                  <h3 class="font-display font-bold text-black text-[20px] mb-3">Nationwide Champion</h3>
+                  <p class="text-slate-700 text-[15px] leading-relaxed">To be a nationwide champion of financial
+                    inclusion
+                    —
+                    where every Filipino, regardless of location or status, has access to secure, reliable, and
+                    innovative
+                    financial services.</p>
+                </div>
+                <div class="reveal">
+                  <div class="text-slate-400 text-[12px] font-semibold uppercase tracking-widest mb-3">Impact</div>
+                  <h3 class="font-display font-bold text-black text-[20px] mb-3">Real-World Change</h3>
+                  <p class="text-slate-700 text-[15px] leading-relaxed">BDOs open doors to opportunity, educate
+                    merchants,
+                    and
+                    expand the reach of inclusive finance — ensuring iPROCESS reaches the grassroots, one merchant at a
+                    time.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-16 pt-12 border-slate-200 reveal">
+              <h3 class="font-display font-bold text-black text-[22px] mb-8">BDOs <span class="font-title">help</span>
+                merchants...</h3>
+              <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-5">
+                <div class="flex items-start gap-3">
+                  <span class="mt-2 w-1.5 h-1.5 rounded-full bg-black shrink-0"></span>
+                  <span class="text-slate-800 text-[15px] font-medium">Accept digital payments</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="mt-2 w-1.5 h-1.5 rounded-full bg-black shrink-0"></span>
+                  <span class="text-slate-800 text-[15px] font-medium">Access banking services</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="mt-2 w-1.5 h-1.5 rounded-full bg-black shrink-0"></span>
+                  <span class="text-slate-800 text-[15px] font-medium">Grow their income</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="mt-2 w-1.5 h-1.5 rounded-full bg-black shrink-0"></span>
+                  <span class="text-slate-800 text-[15px] font-medium">Join the formal economy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CORE VALUES -->
+        <section id="values" class="border-slate-200">
+          <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+            <div class="grid lg:grid-cols-12 gap-10 mb-16">
+              <div class="lg:col-span-4 reveal">
+                <div class="text-slate-500 text-[13px] font-semibold uppercase tracking-widest mb-4">— Core Values</div>
+                <h2 class="font-display font-bold text-black text-[32px] sm:text-[40px] leading-tight">The <span
+                    class="font-title">iProcess Way</span>
+                </h2>
+              </div>
+              <br>
+              <div class="lg:col-span-8 reveal">
+                <p class="text-slate-700 text-[17px] leading-relaxed max-w-2xl">Six values every BDO lives by — not just
+                  principles on paper, but daily practice in the field.</p>
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+              <div class="reveal">
+                <div class="text-slate-400 text-[12px] font-semibold uppercase tracking-widest mb-3">01</div>
+                <h3 class="font-display font-bold text-black text-[20px] mb-3">Integrity</h3>
+                <p class="text-slate-700 text-[15px] leading-relaxed">Honesty and transparency in every engagement — we
+                  do
+                  the
+                  right thing, even when no one is watching.</p>
+              </div>
+              <div class="reveal">
+                <div class="text-slate-400 text-[12px] font-semibold uppercase tracking-widest mb-3">02</div>
+                <h3 class="font-display font-bold text-black text-[20px] mb-3">Performance Excellence</h3>
+                <p class="text-slate-700 text-[15px] leading-relaxed">Meeting and exceeding daily targets with
+                  consistency,
+                  discipline, and accountability — success measured by impact.</p>
+              </div>
+              <div class="reveal">
+                <div class="text-slate-400 text-[12px] font-semibold uppercase tracking-widest mb-3">03</div>
+                <h3 class="font-display font-bold text-black text-[20px] mb-3">Financial Inclusion</h3>
+                <p class="text-slate-700 text-[15px] leading-relaxed">Every Filipino deserves access to financial
+                  services. We
+                  champion inclusivity by bringing digital finance to underserved communities.</p>
+              </div>
+              <div class="reveal">
+                <div class="text-slate-400 text-[12px] font-semibold uppercase tracking-widest mb-3">04</div>
+                <h3 class="font-display font-bold text-black text-[20px] mb-3">Customer Empowerment</h3>
+                <p class="text-slate-700 text-[15px] leading-relaxed">Every merchant and client is treated with respect
+                  —
+                  guided, informed, and confident in using our services.</p>
+              </div>
+              <div class="reveal">
+                <div class="text-slate-400 text-[12px] font-semibold uppercase tracking-widest mb-3">05</div>
+                <h3 class="font-display font-bold text-black text-[20px] mb-3">Growth & Innovation</h3>
+                <p class="text-slate-700 text-[15px] leading-relaxed">Continuous learning, adaptability, and improvement
+                  —
+                  staying ahead in a rapidly evolving financial technology landscape.</p>
+              </div>
+              <div class="reveal">
+                <div class="text-slate-400 text-[12px] font-semibold uppercase tracking-widest mb-3">06</div>
+                <h3 class="font-display font-bold text-black text-[20px] mb-3">Teamwork & Leadership</h3>
+                <p class="text-slate-700 text-[15px] leading-relaxed">We lead with purpose and work as one.
+                  Collaboration
+                  with
+                  supervisors, colleagues, and clients makes our mission stronger.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- RESOURCES -->
+        <section id="resources" class="border-slate-200">
+          <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+            <div class="grid lg:grid-cols-12 gap-10 mb-12">
+              <div class="lg:col-span-4 reveal">
+                <div class="text-slate-500 text-[13px] font-semibold uppercase tracking-widest mb-4">— Resources</div>
+                <h2 class="font-display font-bold text-black text-[32px] sm:text-[40px] leading-tight">Documents & <span
+                    class="font-title">Manuals</span>
+                </h2>
+              </div>
+              <br>
+              <div class="lg:col-span-8 reveal">
+                <p class="text-slate-700 text-[17px] leading-relaxed max-w-2xl">Everything you need to understand the
+                  role,
+                  our standards, and your responsibilities as a BDO.</p>
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
+              <a href="https://drive.google.com/file/d/1AqUfy4evMK5-CieIg3MV0Q9Gl_wL1XaU/view" target="_blank"
+                rel="noopener noreferrer" class="reveal group block">
+                <div class="flex items-baseline justify-between mb-2">
+                  <h3
+                    class="font-display font-bold text-black text-[17px] group-hover:text-slate-600 transition-colors">
+                    Employee Manual Overview</h3>
+                  <span class="text-slate-400 text-[14px]">→</span>
+                </div>
+                <p class="text-slate-600 text-[14px] leading-relaxed">Quick-reference summary of company procedures and
+                  standards</p>
+              </a>
+              <a href="https://d016d0c5-b048-48be-8f18-0f195f11a5dd.usrfiles.com/ugd/d016d0_fe26c227dd74421eb5849b1f9a5779a4.pdf"
+                target="_blank" rel="noopener noreferrer" class="reveal group block">
+                <div class="flex items-baseline justify-between mb-2">
+                  <h3
+                    class="font-display font-bold text-black text-[17px] group-hover:text-slate-600 transition-colors">
+                    Code of Conduct</h3>
+                  <span class="text-slate-400 text-[14px]">→</span>
+                </div>
+                <p class="text-slate-600 text-[14px] leading-relaxed">Behavioral standards and accountability
+                  expectations
+                  for
+                  all BDOs</p>
+              </a>
+              <a href="https://d016d0c5-b048-48be-8f18-0f195f11a5dd.usrfiles.com/ugd/d016d0_eb0ed1a8c8a24d1bb904bcc8224d665d.pdf"
+                target="_blank" rel="noopener noreferrer" class="reveal group block">
+                <div class="flex items-baseline justify-between mb-2">
+                  <h3
+                    class="font-display font-bold text-black text-[17px] group-hover:text-slate-600 transition-colors">
+                    Code of Ethics</h3>
+                  <span class="text-slate-400 text-[14px]">→</span>
+                </div>
+                <p class="text-slate-600 text-[14px] leading-relaxed">Ethical principles guiding every partnership,
+                  transaction, and service</p>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- RECRUITMENT OFFICE -->
+        <section class="border-slate-200">
+          <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-24">
+            <div class="grid lg:grid-cols-12 gap-10">
+              <div class="lg:col-span-4 reveal">
+                <div class="text-slate-500 text-[13px] font-semibold uppercase tracking-widest mb-4">— Recruitment
+                  Office
+                </div>
+                <h2 class="font-display font-bold text-black text-[28px] sm:text-[32px] leading-tight">Questions about
+                  the
+                  <span class="font-title">BDO Role</span>?
+                </h2>
+                <p class="mt-5 text-slate-700 text-[16px] leading-relaxed max-w-sm">Our recruitment team is happy to
+                  answer
+                  any questions before you apply.</p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                  <a href="mailto:recrutmentbdo@iprocessph.com"
+                    class="inline-flex items-center gap-2 bg-black text-white font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-slate-700 transition-colors">Email
+                    Recruitment</a>
+                  <a href="#hero-section"
+                    class="inline-flex items-center gap-2 border border-slate-300 text-black font-semibold text-[14px] px-5 py-3 rounded-full hover:border-slate-900 transition-colors">Back
+                    to Top</a>
+                </div>
+              </div>
+
+              <div class="lg:col-span-8 grid sm:grid-cols-2 gap-x-10 gap-y-8 reveal">
+                <div>
+                  <div class="text-slate-400 text-[12px] font-semibold uppercase tracking-widest mb-3">Address</div>
+                  <p class="text-black text-[15px] leading-relaxed">Room 5 & 6, 2nd Floor Garl Bldg.<br />Gloryville
+                    Subd., Brgy. XIII<br />Victorias City, Negros Occidental</p>
+                </div>
+                <div>
+                  <div class="text-slate-400 text-[12px] font-semibold uppercase tracking-widest mb-3">Recruitment Email
+                  </div>
+                  <a href="mailto:recrutmentbdo@iprocessph.com"
+                    class="text-black text-[15px] font-medium hover:text-slate-600 transition-colors break-all">recrutmentbdo@iprocessph.com</a>
+                </div>
+                <div>
+                  <div class="text-slate-400 text-[12px] font-semibold uppercase tracking-widest mb-3">Telephone</div>
+                  <a href="tel:03444617935"
+                    class="text-black text-[15px] font-medium hover:text-slate-600 transition-colors">034-461-7935</a>
+                </div>
+                <div>
+                  <div class="text-slate-400 text-[12px] font-semibold uppercase tracking-widest mb-3">Office Hours
+                  </div>
+                  <p class="text-slate-800 text-[15px] font-medium">Monday – Saturday, 9:00 AM – 6:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- APPLY -->
+        <div id="apply" class="border-slate-200 franchise-merchant-bg text-white">
+          <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+            <div class="grid lg:grid-cols-12 gap-10">
+              <div class="lg:col-span-5 reveal">
+                <div class="text-slate-400 text-[13px] font-semibold uppercase tracking-widest mb-4">— Apply</div>
+                <h2 class="font-display font-bold text-white text-[36px] sm:text-[48px] leading-[1.05]"><span
+                    class="font-title">Ready</span> to Make a
+                  Difference?</h2>
+                <p class="mt-6 text-slate-300 text-[17px] leading-relaxed max-w-md">Take your first step toward becoming
+                  a
+                  champion of financial inclusion. Our application takes less than 5 minutes to complete.</p>
+              </div>
+
+              <div class="lg:col-span-7 grid sm:grid-cols-2 gap-x-10 gap-y-8 reveal">
+                <div>
+                  <div class="text-slate-400 text-[12px] font-semibold uppercase tracking-widest mb-5">Before you apply,
+                    prepare</div>
+                  <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                      <span class="mt-2 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span>
+                      <span class="text-slate-200 text-[15px] leading-relaxed">Valid government-issued ID (Passport,
+                        Driver's
+                        License, or UMID)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="mt-2 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span>
+                      <span class="text-slate-200 text-[15px] leading-relaxed">Current residential address</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="mt-2 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span>
+                      <span class="text-slate-200 text-[15px] leading-relaxed">Available schedule for interview</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="mt-2 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span>
+                      <span class="text-slate-200 text-[15px] leading-relaxed">Contact number and email address</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="flex flex-col justify-between">
+                  <a href="https://forms.gle/sguR59SH71SRtCtd8" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center gap-2 bg-white text-black font-semibold text-[15px] px-6 py-4 rounded-full hover:bg-slate-100 transition-colors w-full sm:w-auto">
+                    Start Application
+                    <span aria-hidden="true">→</span>
+                  </a>
+                  <p class="mt-6 text-slate-400 text-[13px] leading-relaxed">By submitting your application, you agree
+                    to
+                    the
+                    processing of your personal data as described in our <a href="/privacy"
+                      class="underline hover:text-white">Data Privacy Notice</a>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script type="module" src="/js/main.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero entrance
+    gsap.from('#hero-section nav', { opacity: 0, y: -10, duration: 0.8, ease: 'power2.out' });
+
+    // Reveal on scroll
+    gsap.utils.toArray('.reveal').forEach((el, i) => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          toggleActions: 'play none none none',
+        },
+        delay: (i % 3) * 0.08,
+      });
+    });
+  </script>
+
+</body>
+
+</html>

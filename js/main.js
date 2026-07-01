@@ -38,7 +38,7 @@ function createSmoothScroller() {
   return ScrollSmoother.create({
     wrapper: "#smooth-wrapper",
     content: "#smooth-content",
-    smooth: 2,
+    smooth: 1,
     effects: true,
   });
 }
@@ -72,6 +72,7 @@ async function init() {
   const isHomepage = document.getElementById('section-hero') !== null;
   const isFranchisePage = document.getElementById('franchise') !== null;
   const isMerchantPage = document.getElementById('merchant') !== null;
+  const idBdoPage = document.getElementById('bdo') !== null;
 
   // ── For Homepage ──
   if (isHomepage) {
@@ -272,6 +273,36 @@ async function init() {
     if (typeof animateFranchiseMerchant === 'function') {
       animateFranchiseMerchant();
     }
+
+    refreshScroll();
+
+    window.addEventListener('load', () => {
+      if (smoother) smoother.refresh();
+    });
+  }
+
+  // ── For BDO Page ──
+  else if (idBdoPage) {
+    console.log('BDO Page detected - initializing ScrollSmoother');
+
+    smoother = createSmoothScroller();
+    window._smoother = smoother;
+
+    // Handle internal links
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
+    internalLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href !== '#') {
+          e.preventDefault();
+          const targetId = href.replace('#', '');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement && smoother) {
+            smoother.scrollTo(targetElement, true, 'center center');
+          }
+        }
+      });
+    });
 
     refreshScroll();
 
